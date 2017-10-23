@@ -24,7 +24,7 @@ pipeline {
         //     attachmentsPattern: "kudos.pdf"
         sh '''
             DAY=$(date +"%B %d, %Y")
-            mail -s "Kudos Dashboard - ${DAY}" -A blah.pdf bob@adhocteam.us <<< "Attached is the Kudos Dashboard for this week."
+            echo "Attached is the Kudos Dashboard for this week." | mail -s "Kudos Dashboard - ${DAY}" -A kudos.pdf bob@adhocteam.us
            '''
       }
     }
