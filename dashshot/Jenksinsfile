@@ -1,0 +1,38 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Create PDF') {
+      steps{
+        script {
+          dockerImage = docker.build('dashshot')
+          args = "-v ${pwd()}/pdf"
+          dockerImage.inside(args) {
+            sh 'node /app/index.js'
+          }
+        }
+      }
+    }
+
+    stage('Email resulting PDF') {
+      emailext body: 'Attached is the Kudos Dashboard for this week.',
+          mimeType: 'text/html',
+          subject: "Kudos Dashboard",
+          to: "bob@adhocteam.us",
+          replyTo: "no-reply@github.com",
+          attachmentsPattern: "kudos.pdf"
+    }
+
+    stage('Create and Merge PR') {
+      steps {
+        script { merge_pr() }
+      }
+    }
+  }
+
+  post {
+    always {
+      deleteDir()
+    }
+  }
+}
