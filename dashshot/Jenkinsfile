@@ -16,12 +16,14 @@ pipeline {
 
     stage('Email resulting PDF') {
       steps {
-        emailext body: 'Attached is the Kudos Dashboard for this week.',
-            mimeType: 'text/html',
-            subject: "Kudos Dashboard",
-            to: "bob@adhocteam.us",
-            replyTo: "no-reply@github.com",
-            attachmentsPattern: "kudos.pdf"
+        // emailext body: 'Attached is the Kudos Dashboard for this week.',
+        //     mimeType: 'text/html',
+        //     subject: "Kudos Dashboard",
+        //     to: "bob@adhocteam.us",
+        //     replyTo: "no-reply@github.com",
+        //     attachmentsPattern: "kudos.pdf"
+        sh 'DAY=$(date +"%B %d, %Y");
+            mail -s "Kudos Dashboard - ${DAY}" -A blah.pdf bob@adhocteam.us <<< "Attached is the Kudos Dashboard for this week."'
       }
     }
   }
