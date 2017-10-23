@@ -23,6 +23,7 @@ pipeline {
         //     replyTo: "no-reply@github.com",
         //     attachmentsPattern: "kudos.pdf"
         sh '''
+            ls -ahl
             DAY=$(date +"%B %d, %Y")
             echo "Attached is the Kudos Dashboard for this week." | mail -s "Kudos Dashboard - ${DAY}" -A kudos.pdf bob@adhocteam.us
            '''
