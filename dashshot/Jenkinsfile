@@ -5,8 +5,8 @@ pipeline {
     stage('Create PDF') {
       steps {
         script {
-          dockerImage = docker.build('dashshot')
-          args = "-v ${pwd()}/pdf"
+          dockerImage = docker.build('dashshot', 'dashshot')
+          args = "-v ${pwd()}:/pdf"
           dockerImage.inside(args) {
             sh 'node /app/index.js'
           }
@@ -23,12 +23,6 @@ pipeline {
             replyTo: "no-reply@github.com",
             attachmentsPattern: "kudos.pdf"
         }
-    }
-
-    stage('Create and Merge PR') {
-      steps {
-        script { merge_pr() }
-      }
     }
   }
 
