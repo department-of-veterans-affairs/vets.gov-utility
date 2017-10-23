@@ -22,7 +22,7 @@ pipeline {
             to: "bob@adhocteam.us",
             replyTo: "no-reply@github.com",
             attachmentsPattern: "kudos.pdf"
-        }
+      }
     }
   }
 
