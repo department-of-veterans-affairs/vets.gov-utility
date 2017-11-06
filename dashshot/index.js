@@ -2,7 +2,7 @@ const fs = require('fs');
 const puppeteer = require('puppeteer');
 const PDFMerge = require('pdf-merge');
 
-async function create_pdf(dashes) {
+async function create_pdf(team, dashes) {
   const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   await page.setViewport({width: 1600, height: 1200});
@@ -13,7 +13,7 @@ async function create_pdf(dashes) {
   }
 
   const files = dashes.map((x)=> x['file']);
-  await PDFMerge(files, {output: 'kudos.pdf'});
+  await PDFMerge(files, {output: `${team}.pdf`});
 
   for (let file of files) {
     fs.unlinkSync(file)
@@ -22,7 +22,12 @@ async function create_pdf(dashes) {
   await browser.close();
 }
 
-const dashes = [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/IBLI", file: "kudos-1.pdf"},
-                {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/GELI", file: "kudos-2.pdf"}];
+const dashes = {"kudos": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/IBLI", file: "kudos-1.pdf"},
+                          {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/GELI", file: "kudos-2.pdf"}],
+                "rainbows": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/IBLI", file: "rainbows-1.pdf"},
+                             {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/GELI", file: "rainbows-2.pdf"}]
+};
 
-(async () => { await create_pdf(dashes)})();
+(async () => { for (let team in dashes) {
+                  await create_pdf(team, dashes[team])
+                }})();
