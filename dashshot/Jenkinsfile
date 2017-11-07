@@ -1,3 +1,10 @@
+def slack_delivery(chan, file) {
+  slackSend message: '<!here> Weekly team dashboard delivery:',
+          channel: chan,
+          attachments: file,
+          failOnError: true
+}
+
 pipeline {
   agent {
     label 'vetsgov-general-purpose'
@@ -18,10 +25,11 @@ pipeline {
       }
     }
 
-    stage('Check results') {
+    stage('Slack Results') {
       steps {
-        sh 'ls -al'
-        sh 'ls -al dashshot'
+        slack_delivery('#analytics-deploys', "dashshots/kudos.pdf")
+        slack_delivery('#analytics-deploys', "dashshots/rainbows.pdf")
+        slack_delivery('#analytics-deploys', "dashshots/unicorns.pdf")
       }
     }
   }
