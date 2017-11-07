@@ -13,10 +13,13 @@ async function create_pdf(team, dashes) {
   }
 
   const files = dashes.map((x)=> x['file']);
-  await PDFMerge(files, {output: `${team}.pdf`});
 
-  for (let file of files) {
-    fs.unlinkSync(file)
+  if (files.length > 1) {
+    await PDFMerge(files, {output: `${team}.pdf`});
+
+    for (let file of files) {
+      fs.unlinkSync(file)
+    }
   }
 
   await browser.close();
@@ -26,7 +29,7 @@ const dashes = {"kudos": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHn
                           {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/GELI", file: "kudos-2.pdf"}],
                 "rainbows": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/IBLI", file: "rainbows-1.pdf"},
                              {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/GELI", file: "rainbows-2.pdf"}],
-                "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns-1.pdf"}]
+                "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.pdf"}]
 };
 
 (async () => { for (let team in dashes) {
