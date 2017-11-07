@@ -14,19 +14,9 @@ pipeline {
       }
     }
 
-    stage('Email resulting PDF') {
+    stage('Check results') {
       steps {
-        // emailext body: 'Attached is the Kudos Dashboard for this week.',
-        //     mimeType: 'text/html',
-        //     subject: "Kudos Dashboard",
-        //     to: "bob@adhocteam.us",
-        //     replyTo: "no-reply@github.com",
-        //     attachmentsPattern: "kudos.pdf"
-        sh '''
-            ls -ahl
-            DAY=$(date +"%B %d, %Y")
-            echo "Attached is the Kudos Dashboard for this week." | mail -s "Kudos Dashboard - ${DAY}" -A kudos.pdf bob@adhocteam.us
-           '''
+        sh 'ls -al'
       }
     }
   }
