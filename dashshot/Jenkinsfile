@@ -21,6 +21,7 @@ pipeline {
     stage('Check results') {
       steps {
         sh 'ls -al'
+        sh 'ls -al dashshot'
       }
     }
   }
