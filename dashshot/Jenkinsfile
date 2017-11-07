@@ -18,10 +18,12 @@ pipeline {
       }
     }
 
-    stage('Check results') {
+    stage('Slack Results') {
       steps {
-        sh 'ls -al'
-        sh 'ls -al dashshot'
+        slackSend message: '<!here> Weekly team dashboard delivery:',
+                channel: '#analytics-deploys',
+                attachments: "dashshots/kudos.pdf",
+                failOnError: true
       }
     }
   }
