@@ -19,8 +19,6 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && apt-get purge --auto-remove -y curl \
     && rm -rf /src/*.deb
 
-USER jenkins
-
 WORKDIR /app
 COPY package.json yarn.lock ./
 
@@ -32,5 +30,9 @@ COPY index.js .
 WORKDIR /pdf
 
 COPY . .
+
+RUN chown -R jenkins:jenkins /app /pdf
+RUN chmod -R 777 /app /pdf
+USER jenkins
 
 CMD ["node", "/app/index.js"]
