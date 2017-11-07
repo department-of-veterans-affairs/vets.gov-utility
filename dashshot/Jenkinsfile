@@ -1,10 +1,3 @@
-def slack_delivery(chan, file) {
-  slackSend message: '<!here> Weekly team dashboard delivery:',
-          channel: chan,
-          attachments: file,
-          failOnError: true
-}
-
 pipeline {
   agent {
     label 'vetsgov-general-purpose'
@@ -27,9 +20,9 @@ pipeline {
 
     stage('Slack Results') {
       steps {
-        slack_delivery('#analytics-deploys', "dashshot/kudos.pdf")
-        slack_delivery('#analytics-deploys', "dashshot/rainbows.pdf")
-        slack_delivery('#analytics-deploys', "dashshot/unicorns.pdf")
+        withCredentials([string(credentialsId: 'slack-token', variable: 'TOKEN')])
+        sh "ls -al dashshot"
+        sh "curl -s -F file=@'dashshot/kudos.pdf' -F channels='C7VV5NJ57' -F initial_comment=\"Weekly Dashboard Update\" -F token=$TOKEN https://slack.com/api/files.upload"
       }
     }
   }
