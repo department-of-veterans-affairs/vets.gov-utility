@@ -27,9 +27,9 @@ pipeline {
 
     stage('Slack Results') {
       steps {
-        slack_delivery('#analytics-deploys', "dashshots/kudos.pdf")
-        slack_delivery('#analytics-deploys', "dashshots/rainbows.pdf")
-        slack_delivery('#analytics-deploys', "dashshots/unicorns.pdf")
+        slack_delivery('#analytics-deploys', "dashshot/kudos.pdf")
+        slack_delivery('#analytics-deploys', "dashshot/rainbows.pdf")
+        slack_delivery('#analytics-deploys', "dashshot/unicorns.pdf")
       }
     }
   }
