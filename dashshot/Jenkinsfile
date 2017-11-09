@@ -20,11 +20,17 @@ pipeline {
 
     stage('Slack Results') {
       steps {
-        withCredentials([string(credentialsId: 'slack-token', variable: 'TOKEN')]) {
-          sh '''
-            curl -s -F file=@'dashshot/kudos.pdf' -F channels='C7VV5NJ57' -F initial_comment="Weekly Dashboard Update" -F "token=$TOKEN" https://slack.com/api/files.upload
-            '''
-        }
+        slackSend(
+          channel: "analytics-deploys",
+          attachments: '''[{
+            "fallback": "Screenshot of the dashboard",
+            "color": "#112e51",
+            "pretext": "Data from XX YYY to AA BBB",
+            "title": "Kudos Dashboard",
+            "title_link": "https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA",
+            "image_url": "https://github.com/department-of-veterans-affairs/vets.gov-team/raw/master/Products/Analytics/dashboards/rainbows.pdf",
+        }]'''
+        )
       }
     }
   }
