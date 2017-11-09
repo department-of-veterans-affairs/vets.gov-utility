@@ -1,12 +1,7 @@
 def send_dash(chan, file) {
   slackSend message: '<!here> Weekly team dashboard delivery:',
     channel: chan,
-    attachments: "[{
-            \"fallback\": \"Screenshot of the dashboard\",
-            \"color\": \"#112e51\",
-            \"title\": \"Kudos Dashboard\",
-            \"title_link\": \"https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA\",
-            \"image_url\": \"${file}\"}]",
+    attachments: "[{ \"fallback\": \"Screenshot of the dashboard\", \"color\": \"#112e51\", \"title\": \"Kudos Dashboard\", \"title_link\": \"https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA\", \"image_url\": \"${file}\"}]",
     failOnError: true
 }
 
