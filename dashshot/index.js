@@ -9,7 +9,7 @@ async function create_pdf(team, dashes) {
   await page.emulateMedia('screen')
   for (let dash of dashes) {
     await page.goto(dash['url'], {waitUntil: 'networkidle', networkIdleTimeout: 8000});
-    await page.pdf({path: dash['file'], printBackground: true, width: 1600, height: 1200});
+    await page.screenshot({path: dash['file'], fullPage: true});
   }
 
   const files = dashes.map((x)=> x['file']);
@@ -25,13 +25,15 @@ async function create_pdf(team, dashes) {
   await browser.close();
 }
 
-const dashes = {"kudos": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/IBLI", file: "kudos-1.pdf"},
-                          {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/GELI", file: "kudos-2.pdf"}],
-                "rainbows": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/IBLI", file: "rainbows-1.pdf"},
-                             {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/GELI", file: "rainbows-2.pdf"}],
-                "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.pdf"}]
-};
+// const dashes = {"kudos": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/IBLI", file: "kudos-1.pdf"},
+//                           {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/GELI", file: "kudos-2.pdf"}],
+//                 "rainbows": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/IBLI", file: "rainbows-1.pdf"},
+//                              {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/GELI", file: "rainbows-2.pdf"}],
+//                 "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.pdf"}]
+// };
 
-(async () => { for (let team in dashes) {
-                  await create_pdf(team, dashes[team])
-                }})();
+(async () => {// for (let team in dashes) {
+                  //await create_pdf(team, dashes[team])
+                  await create_pdf("unicorns", [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.png"}])
+                //}
+              })();
