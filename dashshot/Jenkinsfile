@@ -28,7 +28,7 @@ pipeline {
     stage('Slack Results') {
       steps {
         script {
-          send_dash("analytics_deploys", "https://github.com/department-of-veterans-affairs/vets.gov-team/raw/master/Products/Analytics/dashboards/rainbows.pdf")
+          send_dash("analytics_deploys", "https://raw.githubusercontent.com/department-of-veterans-affairs/vets.gov-utility/master/dashshot/archive/unicorns.png")
         }
       }
     }
