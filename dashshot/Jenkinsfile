@@ -21,7 +21,7 @@ pipeline {
     stage('Slack Results') {
       steps {
         slackSend(
-          channel: "analytics-deploys",
+          channels: "analytics-deploys",
           attachments: '''[{
             "fallback": "Screenshot of the dashboard",
             "color": "#112e51",
