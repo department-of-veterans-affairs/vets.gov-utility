@@ -20,8 +20,7 @@ pipeline {
 
     stage('Slack Results') {
       steps {
-        slackSend(
-          message: "Dashboard Snapshot for Rainbows",
+        slackSend message: "Dashboard Snapshot for Rainbows",
           channel: "analytics-deploys",
           attachments: '''[{
             "fallback": "Screenshot of the dashboard",
@@ -30,7 +29,6 @@ pipeline {
             "title_link": "https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA",
             "image_url": "https://github.com/department-of-veterans-affairs/vets.gov-team/raw/master/Products/Analytics/dashboards/rainbows.pdf",
         }]'''
-        )
       }
     }
   }
