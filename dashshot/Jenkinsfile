@@ -1,8 +1,6 @@
 def send_dash(chan, file) {
   slackSend message: '<!here> Weekly team dashboard delivery:',
-    channel: chan,
-    attachments: "[{ \"fallback\": \"Screenshot of the dashboard\", \"color\": \"#112e51\", \"title\": \"Kudos Dashboard\", \"title_link\": \"https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA\", \"image_url\": \"${file}\"}]",
-    failOnError: true
+    channel: "analytics-deploys"
 }
 
 pipeline {
@@ -27,9 +25,11 @@ pipeline {
 
     stage('Slack Results') {
       steps {
-        script {
-          send_dash("analytics_deploys", "https://raw.githubusercontent.com/department-of-veterans-affairs/vets.gov-utility/master/dashshot/archive/unicorns.png")
-        }
+-        withCredentials([string(credentialsId: 'slack-dashboard-token', variable: 'TOKEN')]) {
+ -          sh '''
+ -            curl -s -F file=@'dashshot/kudos.pdf' -F channels='C7VV5NJ57' -F initial_comment="Weekly Dashboard Update" -F "token=$TOKEN" https://slack.com/api/files.upload
+ -            '''
+ -      }
       }
     }
   }
