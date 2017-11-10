@@ -22,9 +22,9 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'slack-dashboard-token', variable: 'TOKEN')]) {
           dir("dashshot") {
-            sh "curl -s -F file=@'kudos.pdf' -F channels='analytics-deploys' -F title='*Kudos Weekly Dashboard* for <!date>' -F initial_comment='Live URL: https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-            sh "curl -s -F file=@'rainbows.pdf' -F channels='analytics-deploys' -F title='*Rainbows Weekly Dashboard* for <!date>' -F initial_comment='Live URL: https://datastudio.google.com/open/0B-eryOVvbpHbR3o4bDBfLTZFSmM' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-            sh "curl -s -F file=@'unicorns.pdf' -F channels='analytics-deploys' -F title='*Unicorns Weekly Dashboard* for <!date>' -F initial_comment='Live URL: https://datastudio.google.com/open/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'kudos.pdf' -F channels='analytics-deploys' -F title='Kudos Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'rainbows.pdf' -F channels='analytics-deploys' -F title='Rainbows Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbR3o4bDBfLTZFSmM' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'unicorns.pdf' -F channels='analytics-deploys' -F title='Unicorns Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
           }
         }
       }
@@ -34,6 +34,12 @@ pipeline {
   post {
     always {
       deleteDir()
+    }
+    success {
+      slackSend message: "Dashboard PDF distribution succeeded", color: "good", channel: "analytics-deploys"
+    }
+    failure {
+      slackSend message: "<!here> Dashboard PDF distribution *FAILED*!", color: "danger", channel: "analytics-deploys"
     }
   }
 }
