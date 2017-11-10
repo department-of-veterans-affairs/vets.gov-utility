@@ -26,9 +26,7 @@ pipeline {
     stage('Slack Results') {
       steps {
 -        withCredentials([string(credentialsId: 'slack-dashboard-token', variable: 'TOKEN')]) {
- -          sh '''
- -            curl -s -F file=@'dashshot/kudos.pdf' -F channels='C7VV5NJ57' -F initial_comment="Weekly Dashboard Update" -F "token=$TOKEN" https://slack.com/api/files.upload
- -            '''
+ -          sh "curl -s -F file=@'dashshot/kudos.pdf' -F channels='analytics-deploys' -F initial_comment='Weekly Dashboard Update' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
  -      }
       }
     }
