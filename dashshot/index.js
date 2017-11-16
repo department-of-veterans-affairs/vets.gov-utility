@@ -29,7 +29,9 @@ const dashes = {"kudos": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHn
                           {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbcUNSbTlnWjZaVzA/page/GELI", file: "kudos-2.pdf"}],
                 "rainbows": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/IBLI", file: "rainbows-1.pdf"},
                              {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/GELI", file: "rainbows-2.pdf"}],
-                "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.pdf"}]
+                "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.pdf"}],
+                "nebula": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA/page/9mgG", file: "nebula-1.pdf"},
+                           {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA/page/ueaI", file: "nebula-2.pdf"}]
 };
 
 (async () => { for (let team in dashes) {
