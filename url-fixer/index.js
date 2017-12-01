@@ -149,7 +149,7 @@ function generateMarkdown(){
   - New Link: ${linkMap.replacement}
   - Files: ${linkMap.foundInFiles.join()}`).join('')
 
-    fs.writeFileSync('./output/stats.md', stats)
+    return writeFile('./output/stats.md', stats)
 }
 
 function generateCsv(){
