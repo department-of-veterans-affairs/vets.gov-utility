@@ -1,4 +1,4 @@
-FROM node:8-slim
+FROM node:9-slim
 
 # Run this like so:
 # docker build -t dashshot . && docker run -it --rm -v "$(pwd)":/pdf dashshot

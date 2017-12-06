@@ -8,7 +8,7 @@ async function create_pdf(team, dashes) {
   await page.setViewport({width: 1600, height: 1200});
   await page.emulateMedia('screen')
   for (let dash of dashes) {
-    await page.goto(dash['url'], {waitUntil: 'networkidle', networkIdleTimeout: 8000});
+    await page.goto(dash['url'], {waitUntil: 'networkidle0'});
     await page.pdf({path: dash['file'], printBackground: true, width: 1600, height: 1200});
   }
 
@@ -31,7 +31,13 @@ const dashes = {"kudos": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHn
                              {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbR3o4bDBfLTZFSmM/page/GELI", file: "rainbows-2.pdf"}],
                 "unicorns": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2/page/GELI", file: "unicorns.pdf"}],
                 "nebula": [{url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA/page/9mgG", file: "nebula-1.pdf"},
-                           {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA/page/ueaI", file: "nebula-2.pdf"}]
+                           {url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA/page/ueaI", file: "nebula-2.pdf"}],
+                "exec": [{ url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbODZBNmphUEhhMWM/page/9mgG", file: "exec-1.pdf"},
+                         { url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbODZBNmphUEhhMWM/page/X94K", file: "exec-2.pdf"},
+                         { url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbODZBNmphUEhhMWM/page/XajK", file: "exec-3.pdf"},
+                         { url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbODZBNmphUEhhMWM/page/ueaI", file: "exec-4.pdf"},
+                         { url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbODZBNmphUEhhMWM/page/j24K", file: "exec-5.pdf"},
+                         { url: "https://datastudio.google.com/org/oXPY3GFFQwaHnjNHpFLyFg/reporting/0B-eryOVvbpHbODZBNmphUEhhMWM/page/TXxK", file: "exec-6.pdf"}]
 };
 
 (async () => { for (let team in dashes) {
