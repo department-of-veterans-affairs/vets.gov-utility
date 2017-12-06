@@ -26,7 +26,7 @@ pipeline {
             sh "curl -s -F file=@'rainbows.pdf' -F channels='rainbows-team' -F title='Rainbows Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbR3o4bDBfLTZFSmM' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
             sh "curl -s -F file=@'unicorns.pdf' -F channels='unicorns-team' -F title='Unicorns Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
             sh "curl -s -F file=@'nebula.pdf' -F channels='nebula' -F title='Nebula Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-
+            sh "curl -s -F file=@'exec.pdf' -F channels='vetsdotgov' -F title='Vets.gov Weekly Executive Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbODZBNmphUEhhMWM' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
           }
         }
       }
