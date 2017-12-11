@@ -6,12 +6,14 @@ pipeline {
   stages {
     stage('Create PDF') {
       steps {
-        dir("dashshot") {
-          script {
-            dockerImage = docker.build('dashshot')
-            args = "-v ${pwd()}:/pdf"
-            dockerImage.inside(args) {
-              sh 'node /app/index.js'
+        timeout(time: 20, unit: 'MINUTES') {
+          dir("dashshot") {
+            script {
+              dockerImage = docker.build('dashshot')
+              args = "-v ${pwd()}:/pdf"
+              dockerImage.inside(args) {
+                sh 'node /app/index.js'
+              }
             }
           }
         }
