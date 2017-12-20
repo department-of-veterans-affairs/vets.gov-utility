@@ -24,11 +24,11 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'slack-dashboard-token', variable: 'TOKEN')]) {
           dir("dashshot") {
-            sh "curl -s -F file=@'kudos.pdf' -F channels='kudos-team' -F title='Kudos Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbcUNSbTlnWjZaVzA' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-            sh "curl -s -F file=@'rainbows.pdf' -F channels='rainbows-team' -F title='Rainbows Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbR3o4bDBfLTZFSmM' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-            sh "curl -s -F file=@'unicorns.pdf' -F channels='unicorns-team' -F title='Unicorns Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/13_08yLsP1ncNgyWr5Ug__-fXEBCVjRs2' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-            sh "curl -s -F file=@'nebula.pdf' -F channels='nebula' -F title='Nebula Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/1hg4NB2RGJl4Hu-4ZUro6v2fdPgndpJDA' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
-            sh "curl -s -F file=@'exec.pdf' -F channels='vetsdotgov' -F title='Vets.gov Weekly Executive Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/0B-eryOVvbpHbODZBNmphUEhhMWM' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'kudos.pdf' -F channels='kudos-team' -F title='Kudos Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/1Jtp5YJsxzdRgApBIbcDMx5420U1VsKVt' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'rainbows.pdf' -F channels='rainbows-team' -F title='Rainbows Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/1OfD78MumK5roK7iBByiQv2mv271sKeac' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'unicorns.pdf' -F channels='unicorns-team' -F title='Unicorns Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/14Gv0B2uVXgK8_U4IPnuHP43ZMDA0qJft' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'nebula.pdf' -F channels='nebula' -F title='Nebula Weekly Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/1xsr2zq9vG8LNw0qwCG7bXX2L6APtGIR-' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
+            sh "curl -s -F file=@'exec.pdf' -F channels='vetsdotgov' -F title='Vets.gov Weekly Executive Dashboard' -F initial_comment='Interactive URL: https://datastudio.google.com/open/1GX0vKX93p84bqLK3sL5Bv7JusOay6jl7' -F 'token=${TOKEN}' https://slack.com/api/files.upload"
           }
         }
       }
