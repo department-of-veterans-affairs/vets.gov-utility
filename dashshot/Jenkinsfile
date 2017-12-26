@@ -45,5 +45,8 @@ pipeline {
     failure {
       slackSend message: "<!here> Dashboard PDF distribution *FAILED*!", color: "danger", channel: "analytics-deploys"
     }
+    aborted {
+      slackSend message: "<!here> Dashboard PDF distribution *TIMED OUT*!", color: "danger", channel: "analytics-deploys"
+    }
   }
 }
