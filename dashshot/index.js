@@ -8,7 +8,7 @@ async function create_pdf(team, dashes) {
   await page.setViewport({width: 1600, height: 1200});
   await page.emulateMedia('screen')
   for (let dash of dashes) {
-    await page.goto(dash['url'], {waitUntil: 'networkidle0'});
+    await page.goto(dash['url'], {waitUntil: ['load','networkidle0']});
     await page.pdf({path: dash['file'], printBackground: true, width: 1600, height: 1200});
   }
 
