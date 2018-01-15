@@ -2,6 +2,8 @@ const fs = require('fs');
 const puppeteer = require('puppeteer');
 const PDFMerge = require('pdf-merge');
 
+const timer = ms => new Promise( res => setTimeout(res, ms));
+
 async function create_pdf(team, dashes) {
   const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
@@ -9,6 +11,8 @@ async function create_pdf(team, dashes) {
   await page.emulateMedia('screen')
   for (let dash of dashes) {
     await page.goto(dash['url'], {waitUntil: ['load','networkidle0']});
+    // Wait for 5 seconds to be sure everything rendered
+    await timer(5000);
     await page.pdf({path: dash['file'], printBackground: true, width: 1600, height: 1200});
   }
 
