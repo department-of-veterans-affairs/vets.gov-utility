@@ -4,6 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SOURCE=
 TARGET=
 IGNORE=
+IGNORE_TAGNAMES=
 
 # Takes a value and assigns it to either SOURCE or TARGET as needed
 get_input () {
@@ -18,11 +19,16 @@ get_input () {
 # Parse out arguments
 while [ ! -z "$1" ]; do
   case $1 in
-    --ignore ) shift
-               IGNORE=$1;
-               ;;
-    * )        get_input $1
-               ;;
+    --ignore-tagnames )
+      IGNORE_TAGNAMES="--ignore-tagnames"
+      ;;
+    --ignore )
+      shift
+      IGNORE=$1;
+      ;;
+    * )
+      get_input $1
+      ;;
   esac
   shift
 done
@@ -54,5 +60,5 @@ if [ ! -d $2 ]; then
   exit 2;
 fi
 
-node $SCRIPT_DIR/index.js $SOURCE $IGNORE | xargs -I % grep -nIT "\<%\>" $TARGET -R --color
+node $SCRIPT_DIR/index.js --source $SOURCE --ignore $IGNORE $IGNORE_TAGNAMES | xargs -I % grep -nIT "\<%\>" $TARGET -R --color
 

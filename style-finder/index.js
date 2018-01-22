@@ -53,11 +53,46 @@ const allSelectors = new Set();
 
 // --- Do stuff --- //
 
-const cssFileName = process.argv[2];
-const cssString = fs.readFileSync(cssFileName, 'utf-8');
+// argv[0]: node, argv[1]: script name; ignore these
+const [,, ...args] = process.argv;
 
-// To reduce clutter, ignore these selectors
-const ignoreList = process.argv[3] ? process.argv[3].split(/[,\s]+/g) : [];
+let cssFileName;
+let ignoreList = [];
+let ignoreTagNames = false;
+for (let i = 0; i < args.length; i++) {
+  switch(args[i]) {
+    case '--ignore-tagnames':
+      ignoreTagNames = true;
+      break;
+    case '--source':
+      cssFileName = args[i + 1];
+      i++;
+      break;
+    case '--ignore':
+      ignoreList = args[i + 1].split(/[,\s]+/g);
+      i++;
+      break;
+    default:
+      // Assume the first unnamed parameter is source and the second is the ignore list
+      if (!cssFileName) {
+        cssFileName = args[i];
+      } else if (!ignoreList) {
+        ignoreList = args[i].split(/[,\s]+/g);
+      }
+  }
+};
+
+// Ignore common tag names
+if (ignoreTagNames) {
+  ignoreList = ignoreList.concat([
+    'p', 'div', 'input', 'select', 'span',
+    'h1', 'h2', 'h3', 'h4', 'h5',
+    'a', 'legend', 'fieldset', 'ul', 'li',
+    'dl', 'dd', 'dt', 'form', 'label'
+  ]);
+}
+
+const cssString = fs.readFileSync(cssFileName, 'utf-8');
 
 const match = cssString
   // Remove comments so they don't mess things up
