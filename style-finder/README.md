@@ -5,8 +5,10 @@ Later, we can even write another script to show which selectors aren't being use
 
 ## Command
 ```
-./find-styles.sh source_file target_directory [--ignore <comma separated list>]
+./find-styles.sh source_file target_directory [--ignore-tagnames] [--ignore <comma separated list>]
 ```
+
+**Note:** The `--ignore-tagnames` doesn't ignore _all_ tag names, but it does ignore many common ones.
 
 
 ## What this does
