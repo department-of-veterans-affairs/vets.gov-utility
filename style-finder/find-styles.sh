@@ -24,7 +24,7 @@ while [ ! -z "$1" ]; do
       ;;
     --ignore )
       shift
-      IGNORE=$1;
+      IGNORE="--ignore $1";
       ;;
     * )
       get_input $1
@@ -60,5 +60,5 @@ if [ ! -d $2 ]; then
   exit 2;
 fi
 
-node $SCRIPT_DIR/index.js --source $SOURCE --ignore $IGNORE $IGNORE_TAGNAMES | xargs -I % grep -nIT "\<%\>" $TARGET -R --color
+node $SCRIPT_DIR/index.js --source $SOURCE $IGNORE $IGNORE_TAGNAMES | xargs -I % grep -nI "\<%\>" $TARGET -R --color
 
