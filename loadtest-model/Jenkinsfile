@@ -24,6 +24,10 @@ pipeline {
         }
       }
     }
+
+    stage ('Archive Graphics') {
+      archive (includes: '*.png')
+    }
   }
 
   post {
