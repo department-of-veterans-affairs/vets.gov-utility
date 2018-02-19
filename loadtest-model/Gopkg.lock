@@ -98,9 +98,12 @@
 
 [[projects]]
   name = "github.com/prometheus/client_golang"
-  packages = ["api/prometheus"]
-  revision = "c5b7fccd204277076155f10851dad72b76a49317"
-  version = "v0.8.0"
+  packages = [
+    "api",
+    "api/prometheus/v1"
+  ]
+  revision = "967789050ba94deca04a5e84cce8ad472ce313c1"
+  version = "v0.9.0-pre1"
 
 [[projects]]
   branch = "master"
@@ -124,11 +127,8 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
-  packages = [
-    "context",
-    "context/ctxhttp"
-  ]
-  revision = "f5dfe339be1d06f81b22525fe34671ee7d2c8904"
+  packages = ["context"]
+  revision = "cbe0f9307d0156177f9dd5dc85da1a31abc5f2fb"
 
 [[projects]]
   branch = "master"
@@ -153,6 +153,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d363a9be4e2cf8a9864cccf73de63b93e4e58774c07441593880e34c899d9568"
+  inputs-digest = "345b3b0878bce04db307388d5930cfc935420f1e3ebfbe22f79bd2ea6c7b37f9"
   solver-name = "gps-cdcl"
   solver-version = 1
