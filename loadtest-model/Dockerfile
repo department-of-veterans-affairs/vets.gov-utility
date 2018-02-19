@@ -6,7 +6,7 @@ RUN dep ensure
 RUN CGO_ENABLED=0 GOOS=linux go build -a -o loadtest-model .
 
 FROM alpine:latest
-RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add ca-certificates tzdata
 WORKDIR /bin/
 COPY --from=0 /go/src/github.com/department-of-veterans-affairs/vets.gov-utility/loadtest-model/loadtest-model .
 WORKDIR /report
