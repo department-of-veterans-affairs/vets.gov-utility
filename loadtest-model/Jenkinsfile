@@ -4,8 +4,8 @@ pipeline {
   }
 
   environment {
-    PROM_URL   = promurl
-    PROM_QUERY = promquery
+    PROM_URL   = "${promurl}"
+    PROM_QUERY = "${promquery}"
   }
 
   stages {
