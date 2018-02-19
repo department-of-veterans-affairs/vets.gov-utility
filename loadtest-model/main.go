@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"net/url"
+	"os"
 	"time"
 )
 
@@ -46,20 +46,23 @@ func main() {
 
 func getConfig() loadModelConfig {
 	return loadModelConfig{
-		proxy:         "socks5://localhost:2001",
-		monitoringURL: "http://prometheus-prod.vetsgov-internal:9090/prometheus/",
-		requestQuery:  "round(sum(rate(api_rack_request[1m])) * 60)", //sum(rate(api_rack_request[6h]) * 60) by (controller)
+		//proxy:         "socks5://localhost:2001",
+		//monitoringURL: "http://prometheus-prod.vetsgov-internal:9090/prometheus/",
+		//requestQuery:  "round(sum(rate(api_rack_request[1m])) * 60)", //sum(rate(api_rack_request[6h]) * 60) by (controller)
+		monitoringURL: os.Getenv("PROM_URL"),
+		requestQuery:  os.Getenv("PROM_QUERY"),
 		reportFile:    "loadmodel.html",
 	}
 }
 
 func configureMonitoring(c loadModelConfig) MonitoringSystem {
-	p, err := url.Parse(c.proxy)
-	if err != nil {
-		log.Fatalln("Error setting up proxy:", err)
-	}
+
+	// p, err := url.Parse(c.proxy)
+	// if err != nil {
+	// 	log.Fatalln("Error setting up proxy:", err)
+	// }
 	return Prometheus{
-		proxyURL:      p,
+		//proxyURL:      p,
 		prometheusURL: c.monitoringURL,
 		query:         c.requestQuery,
 	}

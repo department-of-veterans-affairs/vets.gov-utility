@@ -1,0 +1,33 @@
+pipeline {
+  agent {
+    label 'vetsgov-general-purpose'
+  }
+
+  environment {
+    PROM_URL   = promurl
+    PROM_QUERY = promquery
+  }
+
+  stages {
+    stage('Create Report') {
+      steps {
+        timeout(time: 20, unit: 'MINUTES') {
+          dir("loadtest-model") {
+            script {
+              dockerImage = docker.build('loadtest-model')
+              args = "-v ${pwd()}:/report"
+              dockerImage.inside(args) {
+                sh 'loadtest-model'
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      deleteDir()
+    }
+}

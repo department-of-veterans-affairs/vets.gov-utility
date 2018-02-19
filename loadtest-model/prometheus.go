@@ -14,9 +14,9 @@ import (
 
 // Prometheus is an instance of that monitoring system
 type Prometheus struct {
-	proxyURL      *url.URL //url.Parse("socks5://localhost:2001")
-	prometheusURL string   // "http://prometheus-prod.vetsgov-internal:9090/prometheus/"
-	query         string   //
+	proxyURL      *url.URL
+	prometheusURL string
+	query         string
 }
 
 func (p Prometheus) getData() ([]RequestCount, error) {
