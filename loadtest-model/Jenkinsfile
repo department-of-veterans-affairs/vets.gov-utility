@@ -27,7 +27,7 @@ pipeline {
 
     stage ('Archive Graphics') {
       steps {
-        archive (includes: '*.png')
+        archiveArtifacts (artifacts: 'loadtest-model/*.png')
       }
     }
   }
