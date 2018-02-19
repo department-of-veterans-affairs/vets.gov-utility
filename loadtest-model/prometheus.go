@@ -51,7 +51,7 @@ func (p Prometheus) getData() ([]RequestCount, error) {
 		End:   time.Now().AddDate(0, 0, -1),
 		Step:  step,
 	}
-	value, err := q.QueryRange(ctx, p.query, r)
+	value, err := q.QueryRange(ctx, fmt.Sprintf("round(sum(rate(%s[1m])) * 60)", p.query), r)
 
 	if err != nil {
 		return nil, err
