@@ -20,10 +20,7 @@ describe 'VetCenter Data' do
   end
 
   before(:all) do
-    # staging
-    #layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VHA_VetCenter_stage/FeatureServer/0'
-    # prod
-    layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VHA_VetCenters/FeatureServer/0'
+    layer_url = GISHelper.get_layer_url(:vc)
     query_url = [layer_url, 'query'].join('/')
 
     @metadata = GISHelper.get_metadata(layer_url)

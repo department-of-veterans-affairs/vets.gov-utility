@@ -19,7 +19,7 @@ describe 'VHA Data' do
        SHEP_ScoreDateRange)
   end
   VHA_APPROVED_SERVICE_ATTRS = %w(
-    PrimaryCare 
+    PrimaryCare
     MentalHealthCare
     DentalServices
   ).freeze
@@ -71,7 +71,7 @@ describe 'VHA Data' do
   ).freeze
 
   let(:mapped_attributes) do
-    general_attrs + addr_attrs + phone_attrs + hours_attrs + 
+    general_attrs + addr_attrs + phone_attrs + hours_attrs +
       care_attrs +
       VHA_APPROVED_SERVICE_ATTRS + VHA_UNAPPROVED_SERVICE_ATTRS
   end
@@ -81,10 +81,7 @@ describe 'VHA Data' do
   end
 
   before(:all) do
-    # staging
-    #layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VHA_Facilities_stage/FeatureServer/0'
-    # prod
-    layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VHA_Facilities/FeatureServer/0'
+    layer_url = GISHelper.get_layer_url(:vha)
     query_url = [layer_url, 'query'].join('/')
 
     @metadata = GISHelper.get_metadata(layer_url)

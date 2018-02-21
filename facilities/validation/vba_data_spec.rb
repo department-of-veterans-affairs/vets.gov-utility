@@ -36,10 +36,7 @@ describe 'VBA Data' do
   let(:unmapped_attributes) { %w(OBJECTID Comments Organization) }
 
   before(:all) do
-    # prod
-    #layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VBA_Facilities/FeatureServer/0'
-    # staging
-    layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VBA_Facilities_stage/FeatureServer/0'
+    layer_url = GISHelper.get_layer_url(:vba)
     query_url = [layer_url, 'query'].join('/')
 
     @metadata = GISHelper.get_metadata(layer_url)
