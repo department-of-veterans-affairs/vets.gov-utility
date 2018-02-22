@@ -1,8 +1,8 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"net/http"
 	"net/url"
 	"time"
 
@@ -19,21 +19,12 @@ type Prometheus struct {
 	query         string
 }
 
-func (p Prometheus) getData() ([]RequestCount, error) {
+func (p Prometheus) getPerMinute() ([]RequestCount, error) {
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	config := api.Config{Address: p.prometheusURL}
-	if p.proxyURL != nil {
-		// Only needed locally can remove for Jenkins
-		tr := &http.Transport{
-			Proxy: http.ProxyURL(p.proxyURL),
-		}
-		config.RoundTripper = tr
-	}
-
-	client, err := api.NewClient(config)
+	client, err := api.NewClient(api.Config{Address: p.prometheusURL})
 	if err != nil {
 		return nil, err
 	}
@@ -56,13 +47,13 @@ func (p Prometheus) getData() ([]RequestCount, error) {
 	if err != nil {
 		return nil, err
 	} else if value == nil {
-		return nil, fmt.Errorf("No data returned by Prometheus")
+		return nil, errors.New("No data returned by Prometheus")
 	}
 
-	return processValue(value)
+	return processRates(value)
 }
 
-func processValue(v model.Value) ([]RequestCount, error) {
+func processRates(v model.Value) ([]RequestCount, error) {
 	switch v.Type() {
 	case model.ValMatrix:
 		matrix := v.(model.Matrix)
@@ -76,5 +67,37 @@ func processValue(v model.Value) ([]RequestCount, error) {
 		return data, nil
 	default:
 		return nil, fmt.Errorf("Unexpected data type returned by Prometheus: %v", v.Type())
+	}
+}
+
+func (p Prometheus) getTotal() (float64, error) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	client, err := api.NewClient(api.Config{Address: p.prometheusURL})
+	if err != nil {
+		return -1, err
+	}
+
+	q := promapi.NewAPI(client)
+
+	value, err := q.Query(ctx, fmt.Sprintf("sum(rate(%s[1d]) * 60*60*24)", p.query), time.Now())
+
+	if err != nil {
+		return -1, err
+	} else if value == nil {
+		return -1, errors.New("No data returned by Prometheus")
+	}
+
+	return processTotal(value)
+}
+
+func processTotal(v model.Value) (float64, error) {
+	switch v.Type() {
+	case model.ValVector:
+		vector := v.(model.Vector)
+		return float64(vector[0].Value), nil
+	default:
+		return -1, fmt.Errorf("Unexpected data type returned by Prometheus: %v", v.Type())
 	}
 }

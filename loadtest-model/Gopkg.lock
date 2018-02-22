@@ -25,69 +25,6 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/gonum/blas"
-  packages = [
-    ".",
-    "blas64",
-    "native",
-    "native/internal/math32"
-  ]
-  revision = "e7c5890b24cf6f3bb173f76e1bd71e80e887e3f9"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/gonum/floats"
-  packages = ["."]
-  revision = "7de1f4ea7ab57890bfd427af68c7994cd67975d4"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/gonum/internal"
-  packages = [
-    "asm/f32",
-    "asm/f64"
-  ]
-  revision = "fda53f8d25717c07e2dac25758075a182bd74235"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/gonum/lapack"
-  packages = [
-    ".",
-    "lapack64",
-    "native"
-  ]
-  revision = "f0b8b25edeceafb3a2752941c7bf0cda962df112"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/gonum/matrix"
-  packages = [
-    ".",
-    "mat64"
-  ]
-  revision = "a41cc49d4c29f7451775f4379a5cc6ec6239dfab"
-
-[[projects]]
-  branch = "colorbar-rounding"
-  name = "github.com/gonum/plot"
-  packages = [
-    ".",
-    "palette",
-    "plotter",
-    "tools/bezier",
-    "vg",
-    "vg/draw",
-    "vg/fonts",
-    "vg/vgeps",
-    "vg/vgimg",
-    "vg/vgpdf",
-    "vg/vgsvg"
-  ]
-  revision = "b49a81b30ae6ae7d5126898a411bd52504363b84"
-
-[[projects]]
-  branch = "master"
   name = "github.com/llgcode/draw2d"
   packages = [
     ".",
@@ -150,9 +87,27 @@
   ]
   revision = "996b88e8f8941c9defdbb338bea5e239a230e742"
 
+[[projects]]
+  branch = "master"
+  name = "gonum.org/v1/plot"
+  packages = [
+    ".",
+    "palette",
+    "plotter",
+    "tools/bezier",
+    "vg",
+    "vg/draw",
+    "vg/fonts",
+    "vg/vgeps",
+    "vg/vgimg",
+    "vg/vgpdf",
+    "vg/vgsvg"
+  ]
+  revision = "feab214a240f4312b98ab52baf662b55ff1ee377"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "345b3b0878bce04db307388d5930cfc935420f1e3ebfbe22f79bd2ea6c7b37f9"
+  inputs-digest = "88d6c7a5c628e010bc3399e0397d0204842562954400567405ca65a058c06ba3"
   solver-name = "gps-cdcl"
   solver-version = 1

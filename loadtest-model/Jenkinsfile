@@ -27,7 +27,15 @@ pipeline {
 
     stage ('Archive Graphics') {
       steps {
-        archiveArtifacts (artifacts: 'loadtest-model/*.png')
+        archiveArtifacts (artifacts: 'loadtest-model/*.png, loadtest-model/*.html')
+        publishHTML (target: [
+          allowMissing: false,
+          alwaysLinkToLastBuild: false,
+          keepAll: true,
+          reportDir: 'loadtest-model',
+          reportFiles: 'report.html',
+          reportName: "Load Test Report"
+        ])
       }
     }
   }

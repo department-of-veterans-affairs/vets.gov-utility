@@ -15,7 +15,8 @@ type loadModelConfig struct {
 
 // MonitoringSystem provides timeseries data on requests per minute.
 type MonitoringSystem interface {
-	getData() ([]RequestCount, error)
+	getPerMinute() ([]RequestCount, error)
+	getTotal() (float64, error)
 }
 
 // RequestCount is the number of requests (count) that occured in a given minute (ts).
@@ -26,19 +27,24 @@ type RequestCount struct {
 
 // Reporter outputs a report based on the monitoring data
 type Reporter interface {
-	report(data []RequestCount) error
+	report(data []RequestCount, total float64) error
 }
 
 func main() {
 	c := getConfig()
 	monitoring := configureMonitoring(c)
-	data, err := monitoring.getData()
+	data, err := monitoring.getPerMinute()
+	if err != nil {
+		log.Fatalln("Error getting data from monitoring system:", err)
+	}
+
+	total, err := monitoring.getTotal()
 	if err != nil {
 		log.Fatalln("Error getting data from monitoring system:", err)
 	}
 
 	reporting := configureReporting(c)
-	err = reporting.report(data)
+	err = reporting.report(data, total)
 	if err != nil {
 		log.Fatalln("Error creating output:", err)
 	}
@@ -46,9 +52,6 @@ func main() {
 
 func getConfig() loadModelConfig {
 	return loadModelConfig{
-		//proxy:         "socks5://localhost:2001",
-		//monitoringURL: "http://prometheus-prod.vetsgov-internal:9090/prometheus/",
-		//requestQuery:  "round(sum(rate(api_rack_request[1m])) * 60)", //sum(rate(api_rack_request[6h]) * 60) by (controller)
 		monitoringURL: os.Getenv("PROM_URL"),
 		requestQuery:  os.Getenv("PROM_QUERY"),
 		reportFile:    "loadmodel.html",
@@ -56,13 +59,7 @@ func getConfig() loadModelConfig {
 }
 
 func configureMonitoring(c loadModelConfig) MonitoringSystem {
-
-	// p, err := url.Parse(c.proxy)
-	// if err != nil {
-	// 	log.Fatalln("Error setting up proxy:", err)
-	// }
 	return Prometheus{
-		//proxyURL:      p,
 		prometheusURL: c.monitoringURL,
 		query:         c.requestQuery,
 	}
