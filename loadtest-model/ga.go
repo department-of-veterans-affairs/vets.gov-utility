@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 
 	"golang.org/x/net/context"
@@ -27,9 +28,11 @@ func getGAData() error {
 	data, err := gaAPICall.Do()
 	if err != nil {
 		return err
+	} else if data.TotalResults != 1 {
+		return errors.New("Too many results returned by Google Analytics")
 	}
 
-	fmt.Println(data)
+	fmt.Println(data.Rows[0][0])
 
 	return nil
 }
