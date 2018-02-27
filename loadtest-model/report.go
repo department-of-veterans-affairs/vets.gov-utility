@@ -15,7 +15,7 @@ import (
 
 // HTMLReporter creates an HTML file and associated graphics for the load model report
 type HTMLReporter struct {
-	filename string
+	w io.Writer
 }
 
 type dailyTrafficPeakRate struct {
@@ -89,15 +89,20 @@ const chartTemplate = `
 <p><img src="{{.ImageFile}}"></p>
 `
 
-func (h HTMLReporter) report(data []RequestCount, total float64) error {
-	f, err := os.Create(h.filename)
+func (h *HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) error {
+
+	data, err := monitoring.getPerMinute()
 	if err != nil {
 		return err
 	}
-	defer f.Close()
+
+	total, err := monitoring.getTotal()
+	if err != nil {
+		return err
+	}
 
 	tmpl := template.New("Header")
-	tmpl.Execute(f, template.HTML("<html>\n<body>"))
+	tmpl.Execute(h.w, template.HTML("<html>\n<body>"))
 
 	tmpl = template.Must(template.New("Daily Traffic to Peak Request").Parse(dailyTrafficTemplate))
 
@@ -112,16 +117,16 @@ func (h HTMLReporter) report(data []RequestCount, total float64) error {
 		Ratio:        int64(total / peakRate),
 	}
 
-	if err = tmpl.Execute(f, report); err != nil {
+	if err = tmpl.Execute(h.w, report); err != nil {
 		return err
 	}
 
-	if err := createPlots(data, f); err != nil {
+	if err := createPlots(data, h.w); err != nil {
 		return err
 	}
 
 	tmpl = template.New("Footer")
-	tmpl.Execute(f, template.HTML("<html>\n<body>"))
+	tmpl.Execute(h.w, template.HTML("<html>\n<body>"))
 
 	return nil
 }

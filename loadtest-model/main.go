@@ -1,20 +1,22 @@
 package main
 
 import (
+	"io"
 	"log"
 	"os"
 	"time"
 )
 
 type loadModelConfig struct {
-	proxy         string
 	monitoringURL string
 	requestQuery  string
-	reportFile    string
+	reportOutput  io.Writer
+	viewID        string
+	metric        string
 }
 
 // MonitoringSystem provides timeseries data on requests per minute.
-type MonitoringSystem interface {
+type RequestMonitoring interface {
 	getPerMinute() ([]RequestCount, error)
 	getTotal() (float64, error)
 }
@@ -25,52 +27,59 @@ type RequestCount struct {
 	ts    time.Time
 }
 
+type GrowthMonitoring interface {
+	getWeeklyGrowth() (float64, error)
+	getMonthlyGrowth() (float64, error)
+	getYearlyGrowth() (float64, error)
+}
+
 // Reporter outputs a report based on the monitoring data
 type Reporter interface {
-	report(data []RequestCount, total float64) error
+	report(req RequestMonitoring, grow GrowthMonitoring) error
 }
 
 func main() {
-	if err := getGAData(); err != nil {
-		panic(err)
-	}
-}
-
-func main_old() {
-	c := getConfig()
-	monitoring := configureMonitoring(c)
-	data, err := monitoring.getPerMinute()
+	f, err := os.Create("report.html")
 	if err != nil {
-		log.Fatalln("Error getting data from monitoring system:", err)
+		return err
 	}
+	defer f.Close()
 
-	total, err := monitoring.getTotal()
-	if err != nil {
-		log.Fatalln("Error getting total from monitoring system:", err)
-	}
+	c := getConfig(f)
+	requests := configureMonitoring(c)
+	growth := configureGrowth(c)
 
 	reporting := configureReporting(c)
-	err = reporting.report(data, total)
+	err = reporting.report(requests, growth)
 	if err != nil {
 		log.Fatalln("Error creating output:", err)
 	}
 }
 
-func getConfig() loadModelConfig {
+func getConfig(w io.Writer) loadModelConfig {
 	return loadModelConfig{
 		monitoringURL: os.Getenv("PROM_URL"),
 		requestQuery:  os.Getenv("PROM_QUERY"),
-		reportFile:    "report.html",
+		reportOutput:  w,
+		viewID:        "111433053",
+		metric:        "users",
 	}
 }
 
-func configureMonitoring(c loadModelConfig) MonitoringSystem {
+func configureMonitoring(c loadModelConfig) RequestMonitoring {
 	return Prometheus{
 		prometheusURL: c.monitoringURL,
 		query:         c.requestQuery,
 	}
 }
 
+func configureGrowth(c loadModelConfig) GrowthMonitoring {
+	return GoogleAnalytics{
+		ViewID: c.viewID,
+		Metric: c.metric,
+	}
+}
+
 func configureReporting(c loadModelConfig) Reporter {
-	return HTMLReporter{filename: c.reportFile}
+	return HTMLReporter{w: c.reportOutput}
 }
