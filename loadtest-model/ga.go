@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2/google"
