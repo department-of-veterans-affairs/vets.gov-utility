@@ -66,7 +66,7 @@ func (ga GoogleAnalytics) getYearlyGrowth() (float64, error) {
 	return math.Pow(float64(ga.thisWeek)/float64(lastYear), 1.0/52.0), nil
 }
 
-func (ga GoogleAnalytics) getGAData(start, end int64) (int64, error) {
+func (ga GoogleAnalytics) getGAData(start, end int64) (int, error) {
 	ctx := context.Background()
 	gc, err := google.DefaultClient(ctx, analytics.AnalyticsReadonlyScope)
 	if err != nil {
