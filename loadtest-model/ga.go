@@ -89,5 +89,5 @@ func (ga GoogleAnalytics) getGAData(start, end int64) (int64, error) {
 		return -1, errors.New("Too many results returned by Google Analytics")
 	}
 
-	return strconv.Atoi(data.Rows[0][0]), nil
+	return strconv.Atoi(data.Rows[0][0])
 }
