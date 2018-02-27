@@ -211,7 +211,7 @@ func createPlots(data []RequestCount, w io.Writer) error {
 	return nil
 }
 
-func makeChartSection(toPlot []float64, reportname, charfile string, w io.Writer) error {
+func makeChartSection(toPlot []float64, reportname string, chartfile string, w io.Writer) error {
 	if err := plotHistogram(toPlot, chartfile); err != nil {
 		return err
 	}
