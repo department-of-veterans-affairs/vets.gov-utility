@@ -14,7 +14,7 @@ import (
 type GoogleAnalytics struct {
 	thisWeek int64
 	ViewID   string
-	Metric
+	Metric   string
 }
 
 func (ga GoogleAnalytics) updateThisWeek() error {

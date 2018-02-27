@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"html/template"
 	"io"
-	"os"
 	"time"
 
 	"gonum.org/v1/gonum/stat"
@@ -31,50 +30,56 @@ const dailyTrafficTemplate = `
 <p>Divide daily requests by <b>{{.Ratio}}</b> to get a peak per minute rate.</p>
 `
 
-type siteGrowth struct {
-	WeeklyGrowth         string
-	ThreeMonths          int64
-	ThreeMonthPercentage string
-	SixMonths            int64
-	SixMonthPercentage   string
-	OneYear              int64
-	OneYearPercentage    string
-	GrowthChart          string
-}
-
 const overallSiteGrowth = `
 <h1>Forecasting overall site growth</h1>
 <p>To forecast future site rates, we apply the user growth numbers from Google Analytics because we do not have historical request rates. For each rate, we project three scenarios for the percentage
 of the overall rate. This models a service growing in importance.</p>
 <p>The choice of which rate in each table to pick is based on estimates for the growth of the site and the requests that will vary depending on what is modeled.</p>
+<p><img src="{{.}}"></p>
+`
 
-<p><img src="{{.GrowthChart}}"></p>
+type siteGrowth struct {
+	Period string
+	WoWRate
+	WoWThree
+	WoWSix
+	WoWTwelve
+	MoMRate
+	MoMThree
+	MoMSix
+	MoMTwelve
+	YoYRate
+	YoYThree
+	YoYSix
+	YoYTwelve
+}
 
-<h3>Traffic Three Months from now</h3>
+const siteGrowthSection = `
+<h3>Daily Request Traffic</h3>
 <table>
 <tr>
 <th><b>Overall Traffic Growth</b></th>
-<th>Request Percentage is the Same</th>
-<th>Request Percentage Doubles</th>
-<th>Request Percentage 10x</th>
+<th>Three Months</th>
+<th>Six Months</th>
+<th>Twelve Months</th>
 </tr>
 <tr>
 <td>Week over Week Rate ({{.WoWRate}})</td>
-<td>{{.SameRate}}</td>
-<td>{{.TwiceRate}}</td>
-<td>{{.10xRate}}</td>
+<td>{{.WoWThree}}</td>
+<td>{{.WoWSix}}</td>
+<td>{{.WoWTwelve}}</td>
 </tr>
 <tr>
 <td>Month over Month Rate ({{.MoMRate}})</td>
-<td>{{.SameRate}}</td>
-<td>{{.TwiceRate}}</td>
-<td>{{.10xRate}}</td>
+<td>{{.MoMThree}}</td>
+<td>{{.MoMSix}}</td>
+<td>{{.MoMTwelve}}</td>
 </tr>
 <tr>
 <td>Year over Year Rate ({{.YoYRate}})</td>
-<td>{{.SameRate}}</td>
-<td>{{.TwiceRate}}</td>
-<td>{{.10xRate}}</td>
+<td>{{.YoYThree}}</td>
+<td>{{.YoYSix}}</td>
+<td>{{.YoYTwelve}}</td>
 </tr>
 </table>
 `
@@ -101,6 +106,21 @@ func (h *HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) erro
 		return err
 	}
 
+	weeklyRate, err := grow.getWeeklyGrowth()
+	if err != nil {
+		return err
+	}
+
+	monthlyRate, err := grow.getMonthlyGrowth()
+	if err != nil {
+		return err
+	}
+
+	yearlyRate, err := grow.getYearlyGrowth()
+	if err != nil {
+		return err
+	}
+
 	tmpl := template.New("Header")
 	tmpl.Execute(h.w, template.HTML("<html>\n<body>"))
 
@@ -121,7 +141,11 @@ func (h *HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) erro
 		return err
 	}
 
-	if err := createPlots(data, h.w); err != nil {
+	if err = createSiteGrowth(weeklyRate, monthlyRate, yearlyRate, total, h.w); err != nil {
+		return err
+	}
+
+	if err = createPlots(data, h.w); err != nil {
 		return err
 	}
 
@@ -129,6 +153,40 @@ func (h *HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) erro
 	tmpl.Execute(h.w, template.HTML("<html>\n<body>"))
 
 	return nil
+}
+
+func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) error {
+
+	tmpl := template.Must(template.New("Site Growth Overall").Parse(overallSiteGrowth))
+	if err := tmpl.Execute(w, "GrowthChart.png"); err != nil {
+		return err
+	}
+
+	dailyRate * math.Pow(weekly, 12)
+
+	g := &siteGrowth{
+		Period:    "Three Months",
+		WoWRate:   fmt.Sprintf("%.2f", weekly),
+		WoWThree:  fmt.Sprintf("%.2f", dailyRate*math.Pow(weekly, 12)),
+		WoWSix:    fmt.Sprintf("%.2f", dailyRate*math.Pow(weekly, 28)),
+		WoWTwelve: fmt.Sprintf("%.2f", dailyRate*math.Pow(weekly, 52)),
+		MoMRate:   fmt.Sprintf("%.2f", monthly),
+		MoMThree:  fmt.Sprintf("%.2f", dailyRate*math.Pow(monthly, 12)),
+		MoMSix:    fmt.Sprintf("%.2f", dailyRate*math.Pow(monthly, 28)),
+		MoMTwelve: fmt.Sprintf("%.2f", dailyRate*math.Pow(monthly, 52)),
+		YoYRate:   fmt.Sprintf("%.2f", yearly),
+		YoYThree:  fmt.Sprintf("%.2f", dailyRate*math.Pow(yearly, 12)),
+		YoYSix:    fmt.Sprintf("%.2f", dailyRate*math.Pow(yearly, 28)),
+		YoYTwelve: fmt.Sprintf("%.2f", dailyRate*math.Pow(yearly, 52)),
+	}
+
+	tmpl := template.Must(template.New("Site Growth Section").Parse(siteGrowthSection))
+	if err := tmpl.Execute(w, g); err != nil {
+		return err
+	}
+
+	//TODO make overall GrowthChart.png
+
 }
 
 func createPlots(data []RequestCount, w io.Writer) error {
