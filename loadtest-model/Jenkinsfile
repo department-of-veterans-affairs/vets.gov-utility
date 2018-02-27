@@ -6,9 +6,18 @@ pipeline {
   environment {
     PROM_URL   = "${promurl}"
     PROM_QUERY = "${promquery}"
+    GA_SERVICE_BASE64 = credentials('vetsdotgovanalytics-json-b64')
+    GOOGLE_APPLICATION_CREDENTIALS = "serviceaccount.json"
   }
 
   stages {
+
+    stage('Get GA Credentials') {
+      steps {
+          sh 'echo ${GA_SERVICE_BASE64} | base64 -d > loadtest-model/serviceaccount.json'
+      }
+    }
+
     stage('Create Report') {
       steps {
         timeout(time: 20, unit: 'MINUTES') {

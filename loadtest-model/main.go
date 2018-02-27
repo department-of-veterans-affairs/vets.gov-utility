@@ -31,6 +31,12 @@ type Reporter interface {
 }
 
 func main() {
+	if err := getGAData(); err != nil {
+		panic(err)
+	}
+}
+
+func main_old() {
 	c := getConfig()
 	monitoring := configureMonitoring(c)
 	data, err := monitoring.getPerMinute()
@@ -40,7 +46,7 @@ func main() {
 
 	total, err := monitoring.getTotal()
 	if err != nil {
-		log.Fatalln("Error getting data from monitoring system:", err)
+		log.Fatalln("Error getting total from monitoring system:", err)
 	}
 
 	reporting := configureReporting(c)
@@ -54,7 +60,7 @@ func getConfig() loadModelConfig {
 	return loadModelConfig{
 		monitoringURL: os.Getenv("PROM_URL"),
 		requestQuery:  os.Getenv("PROM_QUERY"),
-		reportFile:    "loadmodel.html",
+		reportFile:    "report.html",
 	}
 }
 

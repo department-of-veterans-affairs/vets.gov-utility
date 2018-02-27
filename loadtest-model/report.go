@@ -31,6 +31,54 @@ const dailyTrafficTemplate = `
 <p>Divide daily requests by <b>{{.Ratio}}</b> to get a peak per minute rate.</p>
 `
 
+type siteGrowth struct {
+	WeeklyGrowth         string
+	ThreeMonths          int64
+	ThreeMonthPercentage string
+	SixMonths            int64
+	SixMonthPercentage   string
+	OneYear              int64
+	OneYearPercentage    string
+	GrowthChart          string
+}
+
+const overallSiteGrowth = `
+<h1>Forecasting overall site growth</h1>
+<p>To forecast future site rates, we apply the user growth numbers from Google Analytics because we do not have historical request rates. For each rate, we project three scenarios for the percentage
+of the overall rate. This models a service growing in importance.</p>
+<p>The choice of which rate in each table to pick is based on estimates for the growth of the site and the requests that will vary depending on what is modeled.</p>
+
+<p><img src="{{.GrowthChart}}"></p>
+
+<h3>Traffic Three Months from now</h3>
+<table>
+<tr>
+<th><b>Overall Traffic Growth</b></th>
+<th>Request Percentage is the Same</th>
+<th>Request Percentage Doubles</th>
+<th>Request Percentage 10x</th>
+</tr>
+<tr>
+<td>Week over Week Rate ({{.WoWRate}})</td>
+<td>{{.SameRate}}</td>
+<td>{{.TwiceRate}}</td>
+<td>{{.10xRate}}</td>
+</tr>
+<tr>
+<td>Month over Month Rate ({{.MoMRate}})</td>
+<td>{{.SameRate}}</td>
+<td>{{.TwiceRate}}</td>
+<td>{{.10xRate}}</td>
+</tr>
+<tr>
+<td>Year over Year Rate ({{.YoYRate}})</td>
+<td>{{.SameRate}}</td>
+<td>{{.TwiceRate}}</td>
+<td>{{.10xRate}}</td>
+</tr>
+</table>
+`
+
 type chartReport struct {
 	Name      string
 	ImageFile string
@@ -42,7 +90,7 @@ const chartTemplate = `
 `
 
 func (h HTMLReporter) report(data []RequestCount, total float64) error {
-	f, err := os.Create("report.html")
+	f, err := os.Create(h.filename)
 	if err != nil {
 		return err
 	}
@@ -82,35 +130,31 @@ func createPlots(data []RequestCount, w io.Writer) error {
 	var err error
 
 	businessHours := filter(data, func(r RequestCount) bool { return isBusinessHours(r.ts) })
-	if err = plotHistogram(businessHours, "business.png"); err != nil {
-		return err
-	}
-	tmpl := template.Must(template.New("Business Hours").Parse(chartTemplate))
-	if err = tmpl.Execute(w, chartReport{"Business Hours", "business.png"}); err != nil {
+	if err = makeChartSection(businessHours, "Business Hours", "business.png"); err != nil {
 		return err
 	}
 
 	nonBusinessHours := filter(data, func(r RequestCount) bool { return !isBusinessHours(r.ts) })
-	if err = plotHistogram(nonBusinessHours, "nonbiz.png"); err != nil {
-		return err
-	}
-	tmpl = template.Must(template.New("Non-Business Hours").Parse(chartTemplate))
-	if err = tmpl.Execute(w, chartReport{"Non-Business Hours", "nonbiz.png"}); err != nil {
+	if err = makeChartSection(nonBusinessHours, "Non-Business Hours", "nonbiz.png"); err != nil {
 		return err
 	}
 
-	for hour := 8; hour <= 18; hour++ {
+	for hour := 9; hour <= 18; hour++ {
 		toPlot := filter(data, func(r RequestCount) bool { return isBusinessHour(r.ts, hour) })
-		if err = plotHistogram(toPlot, fmt.Sprintf("hour-%d.png", hour)); err != nil {
-			return err
-		}
-		tmpl = template.Must(template.New(fmt.Sprintf("Eastern Hour: %d:00-%d:59", hour, hour)).Parse(chartTemplate))
-		if err = tmpl.Execute(w, chartReport{fmt.Sprintf("Eastern Hour: %d:00-%d:59", hour, hour), fmt.Sprintf("hour-%d.png", hour)}); err != nil {
+		if err = makeChartSection(toPlot, fmt.Sprintf("Eastern Hour: %d:00-%d:59", hour, hour), fmt.Sprintf("hour-%d.png", hour)); err != nil {
 			return err
 		}
 	}
 
 	return nil
+}
+
+func makeChartSection(toPlot []float64, chartfile, reportname string) error {
+	if err := plotHistogram(toPlot, chartfile); err != nil {
+		return err
+	}
+	tmpl = template.Must(template.New(reportname).Parse(chartTemplate))
+	return tmpl.Execute(w, chartReport{reportname, chartfile})
 }
 
 func filter(counts []RequestCount, lambda func(RequestCount) bool) []float64 {
