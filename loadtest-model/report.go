@@ -40,18 +40,18 @@ of the overall rate. This models a service growing in importance.</p>
 
 type siteGrowth struct {
 	Period string
-	WoWRate
-	WoWThree
-	WoWSix
-	WoWTwelve
-	MoMRate
-	MoMThree
-	MoMSix
-	MoMTwelve
-	YoYRate
-	YoYThree
-	YoYSix
-	YoYTwelve
+	WoWRate string
+	WoWThree int64
+	WoWSix int64
+	WoWTwelve int64
+	MoMRate string
+	MoMThree int64
+	MoMSix int64
+	MoMTwelve int64
+	YoYRate string
+	YoYThree int64
+	YoYSix int64
+	YoYTwelve int64
 }
 
 const siteGrowthSection = `
@@ -167,17 +167,17 @@ func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) e
 	g := &siteGrowth{
 		Period:    "Three Months",
 		WoWRate:   fmt.Sprintf("%.2f", weekly),
-		WoWThree:  fmt.Sprintf("%.2f", dailyRate*math.Pow(weekly, 12)),
-		WoWSix:    fmt.Sprintf("%.2f", dailyRate*math.Pow(weekly, 28)),
-		WoWTwelve: fmt.Sprintf("%.2f", dailyRate*math.Pow(weekly, 52)),
+		WoWThree:  int64(dailyRate*math.Pow(weekly, 12)),
+		WoWSix:    int64(dailyRate*math.Pow(weekly, 28)),
+		WoWTwelve: int64(dailyRate*math.Pow(weekly, 52)),
 		MoMRate:   fmt.Sprintf("%.2f", monthly),
-		MoMThree:  fmt.Sprintf("%.2f", dailyRate*math.Pow(monthly, 12)),
-		MoMSix:    fmt.Sprintf("%.2f", dailyRate*math.Pow(monthly, 28)),
-		MoMTwelve: fmt.Sprintf("%.2f", dailyRate*math.Pow(monthly, 52)),
+		MoMThree:  int64(dailyRate*math.Pow(monthly, 12)),
+		MoMSix:    int64(dailyRate*math.Pow(monthly, 28)),
+		MoMTwelve: int64(dailyRate*math.Pow(monthly, 52)),
 		YoYRate:   fmt.Sprintf("%.2f", yearly),
-		YoYThree:  fmt.Sprintf("%.2f", dailyRate*math.Pow(yearly, 12)),
-		YoYSix:    fmt.Sprintf("%.2f", dailyRate*math.Pow(yearly, 28)),
-		YoYTwelve: fmt.Sprintf("%.2f", dailyRate*math.Pow(yearly, 52)),
+		YoYThree:  int64(dailyRate*math.Pow(yearly, 12)),
+		YoYSix:    int64(dailyRate*math.Pow(yearly, 28)),
+		YoYTwelve: int64(dailyRate*math.Pow(yearly, 52)),
 	}
 
 	tmpl := template.Must(template.New("Site Growth Section").Parse(siteGrowthSection))
@@ -186,7 +186,7 @@ func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) e
 	}
 
 	//TODO make overall GrowthChart.png
-
+	return nil
 }
 
 func createPlots(data []RequestCount, w io.Writer) error {
