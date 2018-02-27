@@ -19,7 +19,7 @@ type GoogleAnalytics struct {
 
 func (ga GoogleAnalytics) updateThisWeek() error {
 	if ga.thisWeek == 0 {
-		users, err := ga.getGAData(-7, -1)
+		users, err := ga.getGAData(7, 1)
 		if err != nil {
 			return err
 		}
@@ -33,7 +33,7 @@ func (ga GoogleAnalytics) getWeeklyGrowth() (float64, error) {
 		return -1.0, err
 	}
 
-	lastWeek, err := ga.getGAData(-14, -8)
+	lastWeek, err := ga.getGAData(14, 8)
 	if err != nil {
 		return -1.0, nil
 	}
@@ -46,7 +46,7 @@ func (ga GoogleAnalytics) getMonthlyGrowth() (float64, error) {
 		return -1.0, err
 	}
 
-	lastMonth, err := ga.getGAData(-28, -22)
+	lastMonth, err := ga.getGAData(28, 22)
 	if err != nil {
 		return -1.0, nil
 	}
@@ -59,7 +59,7 @@ func (ga GoogleAnalytics) getYearlyGrowth() (float64, error) {
 		return -1.0, err
 	}
 
-	lastYear, err := ga.getGAData(-364, -358)
+	lastYear, err := ga.getGAData(364, 358)
 	if err != nil {
 		return -1.0, nil
 	}
