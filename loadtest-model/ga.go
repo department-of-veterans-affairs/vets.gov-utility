@@ -21,7 +21,7 @@ func getGAData() error {
 		return err
 	}
 
-	gaAPICall := analyticsService.Data.Ga.Get("111433053", time.Now().AddDate(0, 0, -7).UTC().Format(time.RFC3339), time.Now().AddDate(0, 0, -1).UTC().Format(time.RFC3339), "ga:users")
+	gaAPICall := analyticsService.Data.Ga.Get("ga:111433053", "14daysAgo", "yesterday", "ga:users")
 
 	gaAPICall = gaAPICall.SamplingLevel("HIGHER_PRECISION")
 
