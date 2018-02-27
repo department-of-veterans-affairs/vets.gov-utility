@@ -12,7 +12,7 @@ import (
 )
 
 type GoogleAnalytics struct {
-	thisWeek int64
+	thisWeek int
 	ViewID   string
 	Metric   string
 }
