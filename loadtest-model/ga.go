@@ -17,7 +17,7 @@ type GoogleAnalytics struct {
 	Metric   string
 }
 
-func (ga GoogleAnalytics) updateThisWeek() error {
+func (ga *GoogleAnalytics) updateThisWeek() error {
 	if ga.thisWeek == 0 {
 		users, err := ga.getGAData(7, 1)
 		if err != nil {
