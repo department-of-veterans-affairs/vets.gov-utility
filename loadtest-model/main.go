@@ -41,7 +41,7 @@ type Reporter interface {
 func main() {
 	f, err := os.Create("report.html")
 	if err != nil {
-		return err
+		log.Fatalln("Error opening report file")
 	}
 	defer f.Close()
 

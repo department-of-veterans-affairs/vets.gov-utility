@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"math"
 	"time"
 
 	"gonum.org/v1/gonum/stat"
@@ -94,14 +95,14 @@ const chartTemplate = `
 <p><img src="{{.ImageFile}}"></p>
 `
 
-func (h *HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) error {
+func (h HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) error {
 
-	data, err := monitoring.getPerMinute()
+	data, err := req.getPerMinute()
 	if err != nil {
 		return err
 	}
 
-	total, err := monitoring.getTotal()
+	total, err := req.getTotal()
 	if err != nil {
 		return err
 	}
@@ -162,8 +163,6 @@ func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) e
 		return err
 	}
 
-	dailyRate * math.Pow(weekly, 12)
-
 	g := &siteGrowth{
 		Period:    "Three Months",
 		WoWRate:   fmt.Sprintf("%.2f", weekly),
@@ -180,7 +179,7 @@ func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) e
 		YoYTwelve: int64(dailyRate*math.Pow(yearly, 52)),
 	}
 
-	tmpl := template.Must(template.New("Site Growth Section").Parse(siteGrowthSection))
+	tmpl = template.Must(template.New("Site Growth Section").Parse(siteGrowthSection))
 	if err := tmpl.Execute(w, g); err != nil {
 		return err
 	}
