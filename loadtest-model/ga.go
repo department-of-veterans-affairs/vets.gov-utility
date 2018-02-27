@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"time"
 
@@ -24,7 +23,7 @@ func getGAData() error {
 
 	gaAPICall := analyticsService.Data.Ga.Get("111433053", time.Now().AddDate(0, 0, -7).UTC().Format(time.RFC3339), time.Now().AddDate(0, 0, -1).UTC().Format(time.RFC3339), "ga:users")
 
-	gaAPICall = gaAPICall.SetSamplingLevel("HIGHER_PRECISION")
+	gaAPICall = gaAPICall.SamplingLevel("HIGHER_PRECISION")
 
 	data, err := gaAPICall.Do()
 	if err != nil {

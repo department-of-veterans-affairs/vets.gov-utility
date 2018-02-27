@@ -130,18 +130,18 @@ func createPlots(data []RequestCount, w io.Writer) error {
 	var err error
 
 	businessHours := filter(data, func(r RequestCount) bool { return isBusinessHours(r.ts) })
-	if err = makeChartSection(businessHours, "Business Hours", "business.png"); err != nil {
+	if err = makeChartSection(businessHours, "Business Hours", "business.png", w); err != nil {
 		return err
 	}
 
 	nonBusinessHours := filter(data, func(r RequestCount) bool { return !isBusinessHours(r.ts) })
-	if err = makeChartSection(nonBusinessHours, "Non-Business Hours", "nonbiz.png"); err != nil {
+	if err = makeChartSection(nonBusinessHours, "Non-Business Hours", "nonbiz.png", w); err != nil {
 		return err
 	}
 
 	for hour := 9; hour <= 18; hour++ {
 		toPlot := filter(data, func(r RequestCount) bool { return isBusinessHour(r.ts, hour) })
-		if err = makeChartSection(toPlot, fmt.Sprintf("Eastern Hour: %d:00-%d:59", hour, hour), fmt.Sprintf("hour-%d.png", hour)); err != nil {
+		if err = makeChartSection(toPlot, fmt.Sprintf("Eastern Hour: %d:00-%d:59", hour, hour), fmt.Sprintf("hour-%d.png", hour), w); err != nil {
 			return err
 		}
 	}
@@ -149,11 +149,11 @@ func createPlots(data []RequestCount, w io.Writer) error {
 	return nil
 }
 
-func makeChartSection(toPlot []float64, chartfile, reportname string) error {
+func makeChartSection(toPlot []float64, chartfile, reportname string, w io.Writer) error {
 	if err := plotHistogram(toPlot, chartfile); err != nil {
 		return err
 	}
-	tmpl = template.Must(template.New(reportname).Parse(chartTemplate))
+	tmpl := template.Must(template.New(reportname).Parse(chartTemplate))
 	return tmpl.Execute(w, chartReport{reportname, chartfile})
 }
 

@@ -24,11 +24,6 @@
 #   go-tests = true
 #   unused-packages = true
 
-
-[[constraint]]
-  branch = "colorbar-rounding"
-  name = "github.com/gonum/plot"
-
 [[constraint]]
   name = "github.com/prometheus/client_golang"
   version = "0.9.0-pre1"
