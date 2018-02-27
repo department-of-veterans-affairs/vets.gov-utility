@@ -37,6 +37,13 @@ func (ga GoogleAnalytics) getWeeklyGrowth() (float64, error) {
 	if err != nil {
 		return -1.0, nil
 	}
+
+	fmt.Println(ga.thisWeek)
+	fmt.Println(lastWeek)
+	fmt.Println(float64(ga.thisWeek))
+	fmt.Println(float64(lastWeek))
+	fmt.Println(float64(ga.thisWeek) / float64(lastWeek))
+
 	return float64(ga.thisWeek) / float64(lastWeek), nil
 }
 
