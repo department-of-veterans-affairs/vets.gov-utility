@@ -29,12 +29,11 @@ class GISHelper
       response = conn.get(url, params.merge(resultOffset:(query_count * max_record_count)))
       collection_data = JSON.parse(response.body)
       break if collection_data['features'].length < max_record_count
-      byebug
       additional_data['features'] += collection_data['features']
       query_count += 1
     end
 
-    collection_data['features'] = additional_data['features'] if additional_data.any?
+    collection_data['features'] += additional_data['features'] if additional_data['features'].any?
     collection_data
   end
 
