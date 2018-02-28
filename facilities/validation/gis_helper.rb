@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'faraday'
 require 'json'
+require 'byebug'
 
 # Spec helper to fetch GIS data and metadata
 class GISHelper
@@ -20,19 +21,21 @@ class GISHelper
       # c.response :logger
       c.adapter Faraday.default_adapter
     end
-    data = JSON.parse conn.get(url, params).body
-    count = data['features'].length
-    query_count = 1
 
-    #fetch additional pages when applicable
-    while count == max_record_count
+    query_count = 0
+    additional_data = {'features' => []}
+    collection_data = nil
+    loop do
       response = conn.get(url, params.merge(resultOffset:(query_count * max_record_count)))
-      additional_data = JSON.parse(response.body)
-      data['features'] += additional_data['features']
-      count = additional_data['features'].length
+      collection_data = JSON.parse(response.body)
+      break if collection_data['features'].length < max_record_count
+      byebug
+      additional_data['features'] += collection_data['features']
       query_count += 1
     end
-    data
+
+    collection_data['features'] = additional_data['features'] if additional_data.any?
+    collection_data
   end
 
   def self.get_metadata(url)
