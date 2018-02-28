@@ -23,18 +23,18 @@ class GISHelper
     end
 
     query_count = 0
-    additional_data = {'features' => []}
-    collection_data = nil
+    data_collector = {'features' => []}
+    response_data = nil
     loop do
-      response = conn.get(url, params.merge(resultOffset:(query_count * max_record_count)))
-      collection_data = JSON.parse(response.body)
-      break if collection_data['features'].length < max_record_count
-      additional_data['features'] += collection_data['features']
+      response = conn.get(url, params(query_count * max_record_count))
+      response_data = JSON.parse(response.body)
+      data_collector['features'] += response_data['features']
+      break if response_data['features'].length < max_record_count
       query_count += 1
     end
 
-    collection_data['features'] += additional_data['features'] if additional_data['features'].any?
-    collection_data
+    response_data['features'] = data_collector['features']
+    response_data
   end
 
   def self.get_metadata(url)
@@ -51,14 +51,15 @@ class GISHelper
     "https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/#{FACILITY_TYPES[type]}#{stage}/FeatureServer/0"
   end
 
-  def self.params
+  def self.params(offset)
     {
       where: '1=1',
       inSR: 4326,
       outSR: 4326,
       returnGeometry: true,
       outFields: '*',
-      f: 'json'
+      f: 'json',
+      resultOffset: offset
     }
   end
 end
