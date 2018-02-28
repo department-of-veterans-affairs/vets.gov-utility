@@ -1,0 +1,57 @@
+pipeline {
+  agent {
+    label 'vetsgov-general-purpose'
+  }
+
+  environment {
+    PROM_URL   = "${promurl}"
+    PROM_QUERY = "${promquery}"
+    GA_SERVICE_BASE64 = credentials('vetsdotgovanalytics-json-b64')
+    GOOGLE_APPLICATION_CREDENTIALS = "serviceaccount.json"
+  }
+
+  stages {
+
+    stage('Get GA Credentials') {
+      steps {
+          sh 'echo ${GA_SERVICE_BASE64} | base64 -d > loadtest-model/serviceaccount.json'
+      }
+    }
+
+    stage('Create Report') {
+      steps {
+        timeout(time: 20, unit: 'MINUTES') {
+          dir("loadtest-model") {
+            script {
+              dockerImage = docker.build('loadtest-model')
+              args = "-v ${pwd()}:/report"
+              dockerImage.inside(args) {
+                sh 'loadtest-model'
+              }
+            }
+          }
+        }
+      }
+    }
+
+    stage ('Archive Graphics') {
+      steps {
+        archiveArtifacts (artifacts: 'loadtest-model/*.png, loadtest-model/*.html')
+        publishHTML (target: [
+          allowMissing: false,
+          alwaysLinkToLastBuild: false,
+          keepAll: true,
+          reportDir: 'loadtest-model',
+          reportFiles: 'report.html',
+          reportName: "Load Test Report"
+        ])
+      }
+    }
+  }
+
+  post {
+    always {
+      deleteDir()
+    }
+  }
+}
