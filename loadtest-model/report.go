@@ -36,7 +36,7 @@ const overallSiteGrowth = `
 <p>To forecast future site rates, we apply the user growth numbers from Google Analytics because we do not have historical request rates. For each rate, we project three scenarios for the percentage
 of the overall rate. This models a service growing in importance.</p>
 <p>The choice of which rate in each table to pick is based on estimates for the growth of the site and the requests that will vary depending on what is modeled.</p>
-<p><img src="{{.}}"></p>
+<p>Current daily rate is: <b>{{.}}</b></p>
 `
 
 type siteGrowth struct {
@@ -77,10 +77,10 @@ const siteGrowthSection = `
 <td>{{.MoMTwelve}}</td>
 </tr>
 <tr>
-<td>Year over Year Rate ({{.YoYRate}})</td>
-<td>{{.YoYThree}}</td>
-<td>{{.YoYSix}}</td>
-<td>{{.YoYTwelve}}</td>
+<td><b>Year over Year Rate ({{.YoYRate}})</b></td>
+<td><b>{{.YoYThree}}</b></td>
+<td><b>{{.YoYSix}}</b></td>
+<td><b>{{.YoYTwelve}}</b></td>
 </tr>
 </table>
 `
@@ -159,7 +159,7 @@ func (h HTMLReporter) report(req RequestMonitoring, grow GrowthMonitoring) error
 func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) error {
 
 	tmpl := template.Must(template.New("Site Growth Overall").Parse(overallSiteGrowth))
-	if err := tmpl.Execute(w, "GrowthChart.png"); err != nil {
+	if err := tmpl.Execute(w, dailyRate); err != nil {
 		return err
 	}
 
@@ -184,7 +184,6 @@ func createSiteGrowth(weekly, monthly, yearly, dailyRate float64, w io.Writer) e
 		return err
 	}
 
-	//TODO make overall GrowthChart.png
 	return nil
 }
 
