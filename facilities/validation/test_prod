@@ -1,0 +1,1 @@
+USE_PROD_GIS=1 rspec . --format documentation

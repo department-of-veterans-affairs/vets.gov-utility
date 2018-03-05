@@ -20,21 +20,11 @@ describe 'VetCenter Data' do
   end
 
   before(:all) do
-    # staging
-    #layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VHA_VetCenter_stage/FeatureServer/0'
-    # prod
-    layer_url = 'https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/VHA_VetCenters/FeatureServer/0'
+    layer_url = GISHelper.get_layer_url(:vc)
     query_url = [layer_url, 'query'].join('/')
 
     @metadata = GISHelper.get_metadata(layer_url)
-    @data = GISHelper.get_all(query_url)
-  end
-
-  describe 'count' do
-    it 'returns less than maxRecordCount results' do
-      max = @metadata['maxRecordCount']
-      expect(@data['features'].length).to be < max, 'Max record count reached, spec needs to fetch in batches'
-    end
+    @data = GISHelper.get_all(query_url, @metadata['maxRecordCount'])
   end
 
   describe 'station numbers' do
