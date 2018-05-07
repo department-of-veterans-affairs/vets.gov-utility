@@ -47,7 +47,7 @@ class GISHelper
   end
 
   def self.get_layer_url(type)
-    stage = ENV['USE_PROD_GIS'] ? nil : '_stage'
+    stage = ENV['USE_PROD_GIS'] ? nil : "_stage#{'2' if type == :vha}"
     "https://services3.arcgis.com/aqgBd3l68G8hEFFE/ArcGIS/rest/services/#{FACILITY_TYPES[type]}#{stage}/FeatureServer/0"
   end
 
