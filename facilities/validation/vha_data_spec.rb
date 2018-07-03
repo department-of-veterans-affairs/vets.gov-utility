@@ -76,8 +76,7 @@ describe 'VHA Data' do
       VHA_APPROVED_SERVICE_ATTRS + VHA_UNAPPROVED_SERVICE_ATTRS
   end
   let(:unmapped_attributes) do
-    %w(OBJECTID
-       StationID VisnID CommonStationName CocClassificationAttribute)
+    %w(OBJECTID StationID VisnID CommonStationName CocClassificationAttribute DirectPatientSchedulingFlag)
   end
 
   before(:all) do
