@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const vetsGovProject = getVetsProjectLocation()
 const website = 'https://www.vets.gov'
-const validExtensions = ['md', 'html', 'js', 'jsx']
+const validExtensions = ['md', 'html', 'js', 'jsx', 'json']
 const filePaths = {
   internal: path.normalize('./documents/302 vets.gov internal links-Table 1.csv'),
   external: path.normalize('./documents/302 links to other .gov-Table 1.csv'),
@@ -168,4 +168,9 @@ async function main(){
   await generateCsv(links)
 }
 
-main()
+module.exports = {
+  readFile,
+  findAndReplaceAll
+}
+
+if (process.main === module) main()

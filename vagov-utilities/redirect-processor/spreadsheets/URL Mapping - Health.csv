@@ -1,0 +1,57 @@
+Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes
+www.vets.gov/health-care,www.va.gov/healthbenefits/index.asp,/health-care/,
+www.vets.gov/health-care/about-va-health-care/,www.va.gov/healthbenefits/access/medical_benefits_package.asp,/health-care/about-va-health-benefits/,
+www.vets.gov/health-care/about-va-health-care/your-care-team/,,/health-care/about-va-health-benefits/your-care-team/,
+www.vets.gov/health-care/about-va-health-care/where-you-get-care/,,/health-care/about-va-health-benefits/where-you-go-for-care/,
+N/A,www.va.gov/healthbenefits/cost/index.asp,N/A,No Change 
+N/A,www.va.gov/healthbenefits/cost/copays.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/cost/financial_assessment.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/cost/debt.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/cost/financialhardship.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/cost/disputes.asp,N/A,No Change
+www.vets.gov/health-care/about-va-health-care/va-health-care-and-other-insurance/,www.va.gov/healthbenefits/cost/insurance.asp,/health-care/about-va-health-benefits/va-health-care-and-other-insurance/,
+www.vets.gov/health-care/about-va-health-care/assisted-living-and-home-health-care/,www.va.gov/healthbenefits/access/geriatrics.asp,/health-care/about-va-health-benefits/long-term-care/,
+N/A,www.va.gov/healthbenefits/access/home_health_care.asp,/health-care/about-va-health-benefits/long-term-care/,
+www.vets.gov/health-care/about-va-health-care/dental-care/,,/health-care/about-va-health-benefits/dental-care/,
+www.vets.gov/health-care/about-va-health-care/vision-care/,,/health-care/about-va-health-benefits/vision-care/,
+www.vets.gov/health-care/about-va-health-care/vision-care/blind-and-low-vision-veterans/,,/health-care/about-va-health-benefits/vision-care/blind-low-vision-rehab-services/,
+www.vets.gov/health-care/eligibility/,www.va.gov/healthbenefits/apply/veterans.asp,/health-care/eligibility/,
+N/A,www.va.gov/healthbenefits/apply/active_duty.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/apply/returning_servicemembers.asp,N/A,No Change
+www.vets.gov/health-care/apply,www.va.gov/healthbenefits/apply/index.asp,/health-care/how-to-apply/,
+N/A,www.va.gov/healthbenefits/apply/application_process.asp,/health-care/how-to-apply/,
+www.vets.gov/health-care/apply/application/,,/health-care/apply-for-health-care-form-10-10ez/,
+www.vets.gov/health-care/after-you-apply/,,/health-care/after-you-apply/,
+www.vets.gov/health-care/family-caregiver-health-benefits/,www.va.gov/healthbenefits/apply/family_members.asp,/health-care/family-caregiver-benefits/,
+www.vets.gov/health-care/family-caregiver-health-benefits/CHAMPVA/,,/health-care/family-caregiver-benefits/champva/,
+www.vets.gov/health-care/family-caregiver-health-benefits/comprehensive-assistance-family-caregivers/,,/health-care/family-caregiver-benefits/comprehensive-assistance/,
+www.vets.gov/health-care/prescriptions,www.va.gov/healthbenefits/access/prescriptions.asp,/health-care/refill-track-prescriptions/,New Page
+www.vets.gov/health-care/messaging,,/health-care/secure-messaging/,New Page
+www.vets.gov/health-care/schedule-an-appointment/,,/health-care/schedule-view-va-appointments/,
+N/A,,/health-care/view-test-and-lab-results/,New Page
+N/A,,/health-care/order-hearing-aid-batteries-prosthetic-socks/,New Page
+N/A,,/health-care/get-medical-records/,New Page
+N/A,,/health-care/update-health-information/,
+N/A,www.va.gov/healthbenefits/cost/make_a_payment.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/vtp/beneficiary_travel.asp,N/A,No Change
+N/A,www.va.gov/healthbenefits/vhic/index.asp,N/A,No Change
+www.vets.gov/health-care/health-conditions/,,/health-care/health-needs-conditions/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/operation-enduring-freedom/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/operation-enduring-freedom/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/iraq-war/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/iraq-war/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/gulf-war/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/gulf-war/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/cold-war-era/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/cold-war/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/vietnam-war/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/vietnam-war/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/korean-war/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/korean-war/,
+www.vets.gov/health-care/health-conditions/conditions-related-to-service-era/world-war-ii/,,/health-care/health-needs-conditions/health-issues-related-to-service-era/world-war-ii/,
+N/A,www.va.gov/health/topics/index.asp,N/A,No Change
+www.vets.gov/health-care/health-conditions/mental-health/,,/health-care/health-needs-conditions/mental-health/,
+www.vets.gov/health-care/health-conditions/mental-health/ptsd/,,/health-care/health-needs-conditions/mental-health/ptsd/,
+www.vets.gov/health-care/health-conditions/mental-health/depression/,,/health-care/health-needs-conditions/mental-health/depression/,
+www.vets.gov/health-care/health-conditions/mental-health/suicide-prevention/,,/health-care/health-needs-conditions/mental-health/suicide-prevention/,
+www.vets.gov/health-care/health-conditions/military-sexual-trauma/,,/health-care/health-needs-conditions/military-sexual-trauma/,
+www.vets.gov/health-care/health-conditions/substance-use-problems,,/health-care/health-needs-conditions/substance-use-problems/,
+www.vets.gov/health-care/health-conditions/exposure-to-hazardous-materials/,,/health-care/health-needs-conditions/chemical-hazardous-materials-exposure/,
+www.vets.gov/health-care/health-conditions/womens-health-care-needs/,www.va.gov/healthbenefits/apply/women_veterans.asp,/health-care/health-needs-conditions/womens-health-needs/,
+N/A,,/health-care/wellness-programs/,New Page
+www.vets.gov/health-care/affordable-care-act/,,/health-care/about-affordable-care-act/,
