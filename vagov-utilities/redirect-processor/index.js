@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const find = require('find')
 const mkdirp = require('mkdirp')
 const dateFns = require('date-fns')
 
@@ -29,30 +30,52 @@ function addTrailingSlash(str) {
   return str.endsWith('/') ? str : (str + '/')
 }
 
-function parseRow([ existingVetsGovUrl, existingVaGovUrl, newUrl, notes ]) {
+function getApplicationEntryPoints() {
+  const appsDir = getRelativeProjectPath('src/applications')
+  return find
+    .fileSync(/manifest\.json$/, appsDir)
+    .map(file => {
+      const manifest = require(file);
+      return manifest.rootUrl
+    })
+}
+
+function parseRow([ existingVetsGovUrl, existingVaGovUrl, newUrl, notes ], appEntryPoints = []) {
   if (existingVetsGovUrl === NOT_AVAILABLE) return null
 
-  const replacee = existingVetsGovUrl.replace(VETS_DOT_GOV, '')
-  const replacement = addTrailingSlash(newUrl)
+  let replacee = existingVetsGovUrl.replace(VETS_DOT_GOV, '')
+  replacee = addTrailingSlash(replacee)
 
-  if (replacee === replacement || addTrailingSlash(replacee) === replacement) return null
+  let replacement = addTrailingSlash(newUrl)
+
+  // React entry points cannot contain a trailing slash, so we remove the slash if so
+  const replaceeWithoutTrailingSlash = replacee.slice(0, -1)
+  const isReactApp = appEntryPoints.includes(replaceeWithoutTrailingSlash)
+
+  if (isReactApp) {
+    replacee = replaceeWithoutTrailingSlash
+    replacement = replacement.slice(0, -1)
+  }
+
+  if (replacee === replacement) return null
 
   return {
     replacee,
     replacement,
+    isReactApp,
     foundInFiles: [],
     counter: 0
   }
 }
 
-async function parseCsv(csv){
+async function parseCsv(csv, appEntryPoints){
   const file = await fs.promises.readFile(csv)
   return file
     .toString()
     .split('\n')
     .map(row => row.split(','))
     .slice(1)
-    .map(parseRow)
+    .map(row => parseRow(row, appEntryPoints))
     .filter(record => !!record)
 }
 
@@ -65,9 +88,7 @@ function isValidFile(filePath) {
   }
 }
 
-function moveMarkdownFile(link) {
-  const pagesDirectory = 'va-gov/pages'
-
+function moveMarkdownFile(link, pagesDirectory = 'va-gov/pages') {
   const oldUrl = link.replacee
   const linkWithSlash = oldUrl.endsWith('/') ? oldUrl : (oldUrl + '/')
 
@@ -99,10 +120,10 @@ async function writeHistory(links, csv) {
       if (a > b) return -1
       return 0
     })
-    .map(link => `- src: ${link.replacee}\n` + `  dest: ${link.replacement}`)
+    .map(link => `- src: ${link.replacee}\n` + `  dest: ${link.replacement}\n` + `  is-react-app: ${link.isReactApp}`)
     .join('\n')
 
-  const yaml = header + redirects
+  const yaml = header + redirects + '\n`'
 
   const filePath = path.join(__dirname, 'logs/redirects.yaml')
   await fs.promises.appendFile(filePath, yaml)
@@ -127,16 +148,35 @@ async function updateBuildScript(links) {
   await findAndReplaceAll(getRelativeProjectPath('./script'), collectionPatterns)
 }
 
+async function replaceUrlsThroughoutVetsWebsite(links) {
+  const targetDirectories = [/*'content', */'va-gov', 'src']
+
+  const nonAppLinks = links.filter(l => !l.isReactApp)
+  const appLinks = links.filter(l => l.isReactApp)
+  const appLinksWithSlash = appLinks.map(link => {
+    return {
+      ...link,
+      replacee: link.replacee + '/'
+    }
+  })
+
+  const allLinks = [...nonAppLinks, ...appLinks, ...appLinksWithSlash]
+
+  for (const dir of targetDirectories) {
+    await findAndReplaceAll(getRelativeProjectPath(dir), allLinks)
+  }
+}
+
 async function main(){
+  const appEntryPoints = getApplicationEntryPoints()
+
   const csv = getCsvFileNameFromCommandArgs()
-  const links = await parseCsv(csv)
+  const links = await parseCsv(csv, appEntryPoints)
 
-  links.forEach(moveMarkdownFile)
+  links.forEach(link => moveMarkdownFile(link, 'va-gov/pages'))
+  // links.forEach(link => moveMarkdownFile(link, 'content/pages'))
 
-  const targetDirectories = ['/va-gov', '/src']
-
-  for (const dir of targetDirectories) await findAndReplaceAll(getRelativeProjectPath(dir), links)
-
+  await replaceUrlsThroughoutVetsWebsite(links)
   await updateBuildScript(links)
   await writeHistory(links, csv)
 }
