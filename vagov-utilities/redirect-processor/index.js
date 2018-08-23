@@ -179,6 +179,8 @@ async function main(){
   await replaceUrlsThroughoutVetsWebsite(links)
   await updateBuildScript(links)
   await writeHistory(links, csv)
+
+  console.warn('Because the paths may be dynamic, this script does not update child routes of React applications! Check applications to be sure, and update any missed links to instead rely on the manifest.json rootUrl')
 }
 
 main()
