@@ -66,7 +66,7 @@ function isValidFile(filePath) {
 }
 
 function moveMarkdownFile(link) {
-  const pagesDirectory = 'content/pages'
+  const pagesDirectory = 'va-gov/pages'
 
   const oldUrl = link.replacee
   const linkWithSlash = oldUrl.endsWith('/') ? oldUrl : (oldUrl + '/')
