@@ -35,7 +35,7 @@ function parseRow([ existingVetsGovUrl, existingVaGovUrl, newUrl, notes ]) {
   const replacee = existingVetsGovUrl.replace(VETS_DOT_GOV, '')
   const replacement = addTrailingSlash(newUrl)
 
-  if (replacee === replacement) return null
+  if (replacee === replacement || addTrailingSlash(replacee) === replacement) return null
 
   return {
     replacee,

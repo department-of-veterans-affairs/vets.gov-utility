@@ -1,8 +1,4 @@
 # August 23, 2018
-- src: /health-care
-  dest: /health-care/
-
-# August 23, 2018
 - src: /health-care/about-va-health-care/
   dest: /health-care/about-va-health-benefits/
 
