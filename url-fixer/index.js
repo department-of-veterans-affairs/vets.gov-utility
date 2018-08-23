@@ -110,7 +110,7 @@ async function findAndReplace(fileName, urlMap){
   const contents = file.toString()
 
   // Check for a hash
-  const regex = new RegExp('(\\s|"|\\(|https:\\/\\/www\\.vets\\.gov)(' + escapeRegExp(urlMap.replacee) + ')(#|\\s|"|\\))', 'g')
+  const regex = new RegExp('(\\s|"|\'|\\(|https:\\/\\/www\\.vets\\.gov)(' + escapeRegExp(urlMap.replacee) + ')(#|\\s|"|\'|\\))', 'g')
 
   let counter = 0
   const newContents = contents.replace(regex, (match, p1, p2, p3) => {
@@ -170,6 +170,7 @@ async function main(){
 
 module.exports = {
   readFile,
+  writeFile,
   findAndReplaceAll
 }
 
