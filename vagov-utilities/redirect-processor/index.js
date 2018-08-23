@@ -127,7 +127,7 @@ async function main(){
 
   links.forEach(moveMarkdownFile)
 
-  const targetDirectories = ['/va-gov', '/src', '/script']
+  const targetDirectories = ['/va-gov', '/src']
 
   for (const dir of targetDirectories) await findAndReplaceAll(getRelativeProjectPath(dir), links)
 
