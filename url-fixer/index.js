@@ -102,27 +102,11 @@ function escapeRegExp(str) {
 async function findAndReplace(fileName, urlMap){
   const file = await readFile(fileName)
   const contents = file.toString()
-
-  // Check for a hash
-  // (aliases\\:\\s+\\-\\s)
   const regex = new RegExp('(aliases\\:\\s+\\-)?(\\s|"|\'|\\(|https:\\/\\/www\\.vets\\.gov)(' + escapeRegExp(urlMap.replacee) + ')(#|\\s|"|\'|\\))', 'g')
 
   let counter = 0
   const newContents = contents.replace(regex, (match, p1 = '', p2, p3 = '', p4, p5) => {
-
-    // console.log(match)
-
-
     if (p1.includes('aliases')) return match
-
-    console.log('p1: ' + p1)
-    console.log('p2: ' + p2)
-    console.log('p3: ' + p3)
-    console.log('p4: ' + p4)
-
-    // return match
-    // if (!p1) return match
-    // return match
     return p2 + urlMap.replacement + p4
   })
 

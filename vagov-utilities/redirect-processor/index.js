@@ -188,13 +188,11 @@ async function main(){
     links.push(...nextLinks)
   }
 
+  // Remove empty lines, just in case there are newlines at the bottom of the spreadsheets
   links = links.filter(l => !!l)
 
-  // links = links.filter(l => !l.isReactApp)
-  // links.forEach(moveMarkdownFile)
-
+  links.forEach(moveMarkdownFile)
   await replaceUrlsThroughoutVetsWebsite(links)
-  // await updateBuildScript(links)
 }
 
 main()
