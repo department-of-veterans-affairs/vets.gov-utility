@@ -1,0 +1,66 @@
+Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes
+www.vets.gov/education/,www.benefits.va.gov/gibill/education_programs.asp,/education/,
+www.vets.gov/education/gi-bill/,www.benefits.va.gov/gibill/,/education/about-gi-bill-benefits/,
+N/A,www.benefits.va.gov/gibill/montgomery_bill.asp,/education/about-gi-bill-benefits/,
+www.vets.gov/education/gi-bill/post-9-11/,www.benefits.va.gov/gibill/post911_gibill.asp,/education/about-gi-bill-benefits/post-9-11/,
+www.vets.gov/education/gi-bill/yellow-ribbon/,www.benefits.va.gov/gibill/yellow_ribbon.asp,/education/about-gi-bill-benefits/post-9-11/yellow-ribbon-program/,
+www.vets.gov/education/gi-bill/montgomery-active-duty/,www.benefits.va.gov/gibill/mgib_ad.asp,/education/about-gi-bill-benefits/montgomery-active-duty/,
+www.vets.gov/education/gi-bill/buy-up-program/,N/A,/education/about-gi-bill-benefits/montgomery-active-duty/buy-up/,
+www.vets.gov/education/gi-bill/montgomery-selected-reserve/,www.benefits.va.gov/gibill/mgib_sr.asp,/education/about-gi-bill-benefits/montgomery-selected-reserve/,
+New Page [Ways to Use Benefits],N/A,/education/about-gi-bill-benefits/how-to-use-benefits/,New page
+www.vets.gov/education/gi-bill/higher-learning/,www.benefits.va.gov/gibill/higher_learning.asp,/education/about-gi-bill-benefits/how-to-use-benefits/undergraduate-graduate-programs/,
+www.vets.gov/education/gi-bill/foreign-programs/,www.benefits.va.gov/gibill/foreign_school_information_for_students.asp,/education/about-gi-bill-benefits/how-to-use-benefits/study-at-foreign-schools/,
+www.vets.gov/education/work-learn/non-traditional/independent-distance-learning/,www.benefits.va.gov/gibill/independent_distance_learning.asp,/education/about-gi-bill-benefits/how-to-use-benefits/online-distance-learning/,
+www.vets.gov/education/work-learn/non-traditional/correspondence-training/,www.benefits.va.gov/gibill/correspondence_training.asp,/education/about-gi-bill-benefits/how-to-use-benefits/correspondence-training/,
+www.vets.gov/education/gi-bill/tutorial-assistance/,www.benefits.va.gov/gibill/tutorial_assistance.asp,/education/about-gi-bill-benefits/how-to-use-benefits/tutor-assistance/,
+www.vets.gov/education/advanced-training-and-certifications/licensing-certification/,www.benefits.va.gov/gibill/licensing_certification.asp,/education/about-gi-bill-benefits/how-to-use-benefits/test-fees/,
+www.vets.gov/education/advanced-training-and-certifications/national-testing-program/,www.benefits.va.gov/gibill/national_testing.asp,/education/about-gi-bill-benefits/how-to-use-benefits/test-fees/,
+www.vets.gov/education/work-learn/non-college-degree-program/,www.benefits.va.gov/gibill/non_college_degree.asp,/education/about-gi-bill-benefits/how-to-use-benefits/non-college-degree-programs/,
+www.vets.gov/education/work-learn/non-traditional/accelerated-payments/,www.benefits.va.gov/gibill/accelerated_payments.asp,/education/about-gi-bill-benefits/how-to-use-benefits/high-tech-programs/,
+www.vets.gov/education/advanced-training-and-certifications/flight-training/,www.benefits.va.gov/gibill/flight_training.asp,/education/about-gi-bill-benefits/how-to-use-benefits/flight-training/,
+www.vets.gov/education/advanced-training-and-certifications/entrepreneurship-training/,www.benefits.va.gov/gibill/entrepreneurship_training.asp,/education/about-gi-bill-benefits/how-to-use-benefits/entrepreneurship-training/,
+www.vets.gov/education/work-learn/workstudy/,www.benefits.va.gov/gibill/workstudy.asp,/education/about-gi-bill-benefits/how-to-use-benefits/work-study/,
+www.vets.gov/education/work-learn/co-op-training/,www.benefits.va.gov/gibill/coop_training.asp,/education/about-gi-bill-benefits/how-to-use-benefits/co-op-training/,
+www.vets.gov/education/work-learn/job-and-apprenticeship/,www.benefits.va.gov/gibill/onthejob_apprenticeship.asp,/education/about-gi-bill-benefits/how-to-use-benefits/on-the-job-training-apprenticeships/,
+www.vets.gov/education/gi-bill/tuition-assistance/,www.benefits.va.gov/gibill/tuition_assistance.asp,/education/about-gi-bill-benefits/how-to-use-benefits/tuition-assistance-top-up/,
+www.vets.gov/education/eligibility/,N/A,/education/eligibility/,
+www.vets.gov/education/apply/,www.benefits.va.gov/gibill/apply.asp,/education/how-to-apply/,
+www.vets.gov/education/apply-for-education-benefits/application/1990,N/A,/education/apply-for-gi-bill-form-1990/,
+www.vets.gov/education/after-you-apply/,N/A,/education/after-you-apply/,
+www.vets.gov/education/gi-bill/survivors-dependent-assistance/,www.benefits.va.gov/gibill/survivor_dependent_assistance.asp,/education/survivor-dependent-benefits/,
+www.vets.gov/education/gi-bill/survivors-dependent-assistance/fry-scholarship/,www.benefits.va.gov/GIBILL/Fry_scholarship.asp,/education/survivor-dependent-benefits/fry-scholarship/,
+www.vets.gov/education/gi-bill/survivors-dependent-assistance/dependents-education/,www.benefits.va.gov/GIBILL/DEA.asp,/education/survivor-dependent-benefits/dependents-education-assistance/,
+www.vets.gov/education/apply-for-education-benefits/application/5490,N/A,/education/survivor-dependent-benefits/apply-for-dependent-benefits-form-22-5490/,
+www.vets.gov/education/apply-for-education-benefits/application/1990E,N/A,/education/survivor-dependent-benefits/apply-for-transferred-benefits-form-22-1990e/,
+www.vets.gov/education/other-educational-assistance-programs/,N/A,/education/other-va-education-benefits/,
+www.vets.gov/education/other-educational-assistance-programs/reap/,www.benefits.va.gov/gibill/reap.asp,/education/other-va-education-benefits/reap/,
+www.vets.gov/education/other-educational-assistance-programs/veap/,www.benefits.va.gov/gibill/veap.asp,/education/other-va-education-benefits/veap/,
+www.vets.gov/education/other-educational-assistance-programs/call-to-service/,www.benefits.va.gov/gibill/national_call_to_service.asp,/education/other-va-education-benefits/national-call-to-service-program/,
+www.vets.gov/education/apply-for-education-benefits/application/1990N/,N/A,/education/other-va-education-benefits/national-call-to-service-program/apply-for-benefits-under-ncs-form-1990n/,
+www.vets.gov/education/gi-bill/post-9-11/ch-33-benefit,N/A,/education/check-post-9-11-gi-bill-benefit-status/,
+www.vets.gov/education/gi-bill/post-9-11/ch-33-benefit/status,N/A,/education/check-post-9-11-gi-bill-benefit-status/statement/,
+www.vets.gov/education/gi-bill/transfer/,www.benefits.va.gov/gibill/post911_transfer.asp,education/transfer-post-9-11-gi-bill-benefits/,
+New page [Change GI Bill School or Program],N/A,/education/change-gi-bill-benefits/,New page
+www.vets.gov/education/apply-for-education-benefits/application/1995,N/A,/education/change-gi-bill-benefits/request-change-form-22-1995/,
+www.vets.gov/education/apply-for-education-benefits/application/5495,N/A,/education/change-gi-bill-benefits/dependent-request-change-form-22-5495/,
+N/A,www.benefits.va.gov/GIBILL/FGIB/Restoration.asp,N/A,NO CHANGE
+www.vets.gov/education/opt-out-information-sharing/ ,N/A,/education/information-sharing-opt-out/,
+www.vets.gov/education/opt-out-information-sharing/opt-out-form-0993/claimant-information,N/A,/education/information-sharing-opt-out/opt-out-form-0993/,
+www.vets.gov/gi-bill-comparison-tool,N/A,/education/gi-bill-school-comparison-tool/,
+www.vets.gov/education/rates/,N/A,/education/benefit-rates/,
+www.vets.gov/education/tools-programs/locate-a-school/,www.benefits.va.gov/gibill/school_decision.asp,/education/choosing-a-school/,
+N/A,www.benefits.va.gov/gibill/choosing_a_school.asp,/education/choosing-a-school/,
+N/A,www.benefits.va.gov/gibill/school_locator.asp,/education/choosing-a-school/,
+www.vets.gov/education/tools-programs/principles-excellence-program/,www.benefits.va.gov/gibill/principles_of_excellence.asp,/education/choosing-a-school/principles-of-excellence/,
+N/A,inquiry.vba.va.gov/weamspub/buildSearchInstitutionCriteria.do;jsessionid=qtMbSxQFpzyL7GpnQrtnNGv6G9CGQQvb2YqM9Cvw3vB2pv2lXhfJ!-1531379871,N/A,NO CHANGE
+www.vets.gov/education/tools-programs/careerscope/,www.benefits.va.gov/gibill/careerscope.asp,/education/careerscope-skills-assessment/,
+N/A,www.benefits.va.gov/gibill/resources/education_resources/debt_info.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/gibill/contact_us.asp,N/A,NO CHANGE
+N/A,gibill.custhelp.va.gov/app/answers/detail/a_id/523 ,N/A,NO CHANGE
+N/A,www.benefits.va.gov/gibill/regional_processing.asp ,N/A,NO CHANGE
+N/A,www.benefits.va.gov/GIBILL/Feedback.asp,N/A,NO CHANGE
+www.vets.gov/education/gi-bill-school-feedback/,N/A,/education/submit-school-feedback,Not Live Yet
+N/A,www.benefits.va.gov/gibill/school_decision.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/gibill/choosing_a_school.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/gibill/non_va_resources.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/gibill/comparison_tool.asp,N/A,NO CHANGE
