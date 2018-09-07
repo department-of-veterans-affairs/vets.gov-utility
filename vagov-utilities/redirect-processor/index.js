@@ -88,25 +88,39 @@ function isValidFile(filePath) {
   }
 }
 
-function moveMarkdownFile(link, pagesDirectory = 'va-gov/pages') {
-  const oldUrl = link.replacee
-  const linkWithSlash = oldUrl.endsWith('/') ? oldUrl : (oldUrl + '/')
+function writeError(data) {
+  console.error(data)
+  const log = path.join(__dirname, 'errors.log')
+  fs.appendFileSync(log, data + '\n')
+}
 
-  let markdownFile = getRelativeProjectPath(pagesDirectory, linkWithSlash + 'index.md')
+function moveMarkdownFile(link) {
+  let newFileName = null
+  let oldFileName = getRelativeProjectPath('content/pages', link.replacee, '../', path.basename(link.replacee) + '.md')
 
-  if (!isValidFile(markdownFile)) {
-    let linkWithoutSlash = linkWithSlash.slice(0, -1)
-    markdownFile = getRelativeProjectPath(pagesDirectory, linkWithoutSlash + '.md')
-    if (!isValidFile(markdownFile)) {
-      console.error('Failed to find file: ' + markdownFile)
+  if (isValidFile(oldFileName)) {
+    newFileName = getRelativeProjectPath('va-gov/pages', link.replacement, '../', path.basename(link.replacement) + '.md')
+  } else {
+    let indexFile = getRelativeProjectPath('content/pages', link.replacee, 'index.md')
+    if (isValidFile(indexFile)) {
+      oldFileName = indexFile
+      newFileName = getRelativeProjectPath('va-gov/pages', link.replacement, 'index.md')
+    } else {
+      writeError(`Failed to find Vets.gov content file: ${link.replacee}`)
+      return
     }
   }
 
-  const newDirectory = getRelativeProjectPath(pagesDirectory, link.replacement)
-  const newMarkdownFile = path.join(newDirectory, 'index.md')
+  console.log(`Old file name: ${oldFileName}`)
+  console.log(`New location: ${newFileName}`)
 
-  mkdirp.sync(newDirectory)
-  fs.renameSync(markdownFile, newMarkdownFile)
+  if (fs.existsSync(newFileName)) {
+    writeError(`File already written: ${newFileName}`)
+    return
+  }
+
+  mkdirp.sync(path.join(newFileName, '../'))
+  fs.copyFileSync(oldFileName, newFileName)
 }
 
 async function writeHistory(links, csv) {
@@ -123,7 +137,7 @@ async function writeHistory(links, csv) {
     .map(link => `- src: ${link.replacee}\n` + `  dest: ${link.replacement}\n` + `  is-react-app: ${link.isReactApp}`)
     .join('\n')
 
-  const yaml = header + redirects + '\n`'
+  const yaml = header + redirects + '\n'
 
   const filePath = path.join(__dirname, 'logs/redirects.yaml')
   await fs.promises.appendFile(filePath, yaml)
@@ -149,7 +163,7 @@ async function updateBuildScript(links) {
 }
 
 async function replaceUrlsThroughoutVetsWebsite(links) {
-  const targetDirectories = [/*'content', */'va-gov', 'src']
+  const targetDirectories = ['va-gov']
 
   const nonAppLinks = links.filter(l => !l.isReactApp)
   const appLinks = links.filter(l => l.isReactApp)
@@ -171,9 +185,11 @@ async function main(){
   const appEntryPoints = getApplicationEntryPoints()
 
   const csv = getCsvFileNameFromCommandArgs()
-  const links = await parseCsv(csv, appEntryPoints)
+  let links = await parseCsv(csv, appEntryPoints)
 
-  links.forEach(link => moveMarkdownFile(link, 'va-gov/pages'))
+  links = links.filter(l => !l.isReactApp)
+
+  links.forEach(link => moveMarkdownFile(link))
   // links.forEach(link => moveMarkdownFile(link, 'content/pages'))
 
   await replaceUrlsThroughoutVetsWebsite(links)
