@@ -90,7 +90,7 @@ function isValidFile(filePath) {
 
 function writeError(data) {
   console.error(data)
-  const log = path.join(__dirname, 'errors.log')
+  const log = path.join(__dirname, 'logs/errors.log')
   fs.appendFileSync(log, data + '\n')
 }
 
