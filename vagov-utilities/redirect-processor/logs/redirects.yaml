@@ -537,3 +537,19 @@
 - src: /health-care/apply/application/
   dest: /health-care/apply-for-health-care-form-10-10ez/
   is-react-app: false
+# September 14, 2018
+- src: /download-va-letters/
+  dest: /records/download-va-letters/
+  is-react-app: false
+# September 14, 2018
+- src: /download-va-letters/letters
+  dest: /records/download-va-letters/letters
+  is-react-app: true
+# September 14, 2018
+- src: /discharge-upgrade-instructions/
+  dest: /records/discharge-upgrade/
+  is-react-app: false
+# September 14, 2018
+- src: /veteran-id-card
+  dest: /records/get-veteran-id-cards
+  is-react-app: true
