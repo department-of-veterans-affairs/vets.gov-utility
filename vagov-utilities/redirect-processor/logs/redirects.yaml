@@ -553,3 +553,379 @@
 - src: /veteran-id-card
   dest: /records/get-veteran-id-cards
   is-react-app: true
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/
+  dest: /careers-employment/vocational-rehabilitation/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/
+  dest: /careers-employment/vocational-rehabilitation/programs/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/return-to-job/
+  dest: /careers-employment/vocational-rehabilitation/programs/reemployment/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/job-search-and-counseling/
+  dest: /careers-employment/vocational-rehabilitation/programs/rapid-access-to-employment/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/small-business-training/
+  dest: /careers-employment/vocational-rehabilitation/programs/self-employment/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/new-skills/
+  dest: /careers-employment/vocational-rehabilitation/programs/long-term-services/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/independent-living/
+  dest: /careers-employment/vocational-rehabilitation/programs/independent-living/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/eligibility/
+  dest: /careers-employment/vocational-rehabilitation/eligibility/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/ides/
+  dest: /careers-employment/vocational-rehabilitation/ides/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/apply-vre/
+  dest: /careers-employment/how-to-apply/
+  is-react-app: false
+# September 17, 2018
+- src: /education/tools-programs/education-career-counseling/
+  dest: /careers-employment/education-and-career-counseling/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/family-members/
+  dest: /careers-employment/dependent-benefits/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/job-seekers/register-your-business/
+  dest: /careers-employment/veteran-owned-business-support/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/vetsuccess/
+  dest: /careers-employment/vetsuccess-on-campus/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/external-resources/
+  dest: /careers-employment/veteran-resources/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/job-seekers/family-members/
+  dest: /careers-employment/family-resources/
+  is-react-app: false
+# September 17, 2018
+- src: /education/tools-programs/careerscope/
+  dest: /careers-employment/careerscope-skills-assessment/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/claim-types/
+  dest: /disability/how-to-file-a-claim/when-to-file/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/claim-types/predischarge-claim/
+  dest: /disability/how-to-file-a-claim/when-to-file/pre-discharge-claim/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/claim-types/predischarge-claim/overseas/
+  dest: /disability/how-to-file-a-claim/when-to-file/pre-discharge-claim/file-while-overseas/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/evidence/
+  dest: /disability/how-to-file-a-claim/evidence-needed/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/evidence/decision-ready-claims/
+  dest: /disability/how-to-file-a-claim/evidence-needed/decision-ready-claims/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/evidence/fully-developed-disability-claims/
+  dest: /disability/how-to-file-a-claim/evidence-needed/fully-developed-claims/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/evidence/standard-disability-claims/
+  dest: /disability/how-to-file-a-claim/evidence-needed/standard-claims/
+  is-react-app: false
+# September 17, 2018
+- src: /disability-benefits/apply/supplemental-forms/
+  dest: /disability/how-to-file-a-claim/supplemental-forms/
+  is-react-app: false
+# September 17, 2018
+- src: /health-care/messaging/
+  dest: /health-care/secure-messaging/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/
+  dest: /housing-assistance/home-loans/loan-types/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/purchase-loan/
+  dest: /housing-assistance/home-loans/loan-types/purchase-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/cash-out-refinance/
+  dest: /housing-assistance/home-loans/loan-types/cash-out-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/nadl/
+  dest: /housing-assistance/home-loans/loan-types/native-american-direct-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/irrrl/
+  dest: /housing-assistance/home-loans/loan-types/interest-rate-reduction-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/apply-for-certificate-of-eligibility/
+  dest: /housing-assistance/home-loans/how-to-apply/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/adaptive-housing-grants/
+  dest: /housing-assistance/disability-housing-grants/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/
+  dest: /life-insurance/options-eligibility/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/sgli/
+  dest: /life-insurance/options-eligibility/sgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/fsgli/
+  dest: /life-insurance/options-eligibility/fsgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/tsgli/
+  dest: /life-insurance/options-eligibility/tsgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/vgli/
+  dest: /life-insurance/options-eligibility/vgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/s-dvi/
+  dest: /life-insurance/options-eligibility/s-dvi/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/vmli/
+  dest: /life-insurance/options-eligibility/vmli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/disabled-and-terminally-ill/
+  dest: /life-insurance/totally-disabled-or-terminally-ill/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/apply/
+  dest: /pension/how-to-apply/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/apply/fully-developed-claim/
+  dest: /pension/how-to-apply/fully-developed-claim/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/application/527EZ
+  dest: /pension/apply-for-veteran-pension-form-21p-527ez
+  is-react-app: true
+# September 17, 2018
+- src: /pension/survivors-pension/rates/
+  dest: /pension/survivors-pension-rates/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/pension-management-center/
+  dest: /pension/pension-management-centers/
+  is-react-app: false
+# September 17, 2018
+- src: /download-va-letters/
+  dest: /records/download-va-letters/
+  is-react-app: false
+# September 17, 2018
+- src: /download-va-letters/letters
+  dest: /records/download-va-letters/letters
+  is-react-app: true
+# September 17, 2018
+- src: /discharge-upgrade-instructions
+  dest: /records/discharge-upgrade
+  is-react-app: true
+# September 17, 2018
+- src: /veteran-id-card
+  dest: /records/get-veteran-id-cards
+  is-react-app: true
+# September 17, 2018
+- src: /veteran-id-card/apply
+  dest: /records/get-veteran-id-cards
+  is-react-app: true
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/
+  dest: /careers-employment/vocational-rehabilitation/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/
+  dest: /careers-employment/vocational-rehabilitation/programs/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/return-to-job/
+  dest: /careers-employment/vocational-rehabilitation/programs/reemployment/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/job-search-and-counseling/
+  dest: /careers-employment/vocational-rehabilitation/programs/rapid-access-to-employment/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/small-business-training/
+  dest: /careers-employment/vocational-rehabilitation/programs/self-employment/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/new-skills/
+  dest: /careers-employment/vocational-rehabilitation/programs/long-term-services/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/service-disabled/independent-living/
+  dest: /careers-employment/vocational-rehabilitation/programs/independent-living/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/eligibility/
+  dest: /careers-employment/vocational-rehabilitation/eligibility/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/ides/
+  dest: /careers-employment/vocational-rehabilitation/ides/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/apply-vre/
+  dest: /careers-employment/how-to-apply/
+  is-react-app: false
+# September 17, 2018
+- src: /education/tools-programs/education-career-counseling/
+  dest: /careers-employment/education-and-career-counseling/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/family-members/
+  dest: /careers-employment/dependent-benefits/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/job-seekers/register-your-business/
+  dest: /careers-employment/veteran-owned-business-support/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/vetsuccess/
+  dest: /careers-employment/vetsuccess-on-campus/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/vocational-rehab-and-employment/external-resources/
+  dest: /careers-employment/veteran-resources/
+  is-react-app: false
+# September 17, 2018
+- src: /employment/job-seekers/family-members/
+  dest: /careers-employment/family-resources/
+  is-react-app: false
+# September 17, 2018
+- src: /education/tools-programs/careerscope/
+  dest: /careers-employment/careerscope-skills-assessment/
+  is-react-app: false
+# September 17, 2018
+- src: /health-care/messaging/
+  dest: /health-care/secure-messaging/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/
+  dest: /housing-assistance/home-loans/loan-types/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/purchase-loan/
+  dest: /housing-assistance/home-loans/loan-types/purchase-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/cash-out-refinance/
+  dest: /housing-assistance/home-loans/loan-types/cash-out-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/nadl/
+  dest: /housing-assistance/home-loans/loan-types/native-american-direct-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/loan-options/irrrl/
+  dest: /housing-assistance/home-loans/loan-types/interest-rate-reduction-loan/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/home-loans/apply-for-certificate-of-eligibility/
+  dest: /housing-assistance/home-loans/how-to-apply/
+  is-react-app: false
+# September 17, 2018
+- src: /housing-assistance/adaptive-housing-grants/
+  dest: /housing-assistance/disability-housing-grants/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/
+  dest: /life-insurance/options-eligibility/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/sgli/
+  dest: /life-insurance/options-eligibility/sgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/fsgli/
+  dest: /life-insurance/options-eligibility/fsgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/tsgli/
+  dest: /life-insurance/options-eligibility/tsgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/vgli/
+  dest: /life-insurance/options-eligibility/vgli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/s-dvi/
+  dest: /life-insurance/options-eligibility/s-dvi/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/options-and-eligibility/vmli/
+  dest: /life-insurance/options-eligibility/vmli/
+  is-react-app: false
+# September 17, 2018
+- src: /life-insurance/disabled-and-terminally-ill/
+  dest: /life-insurance/totally-disabled-or-terminally-ill/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/apply/
+  dest: /pension/how-to-apply/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/apply/fully-developed-claim/
+  dest: /pension/how-to-apply/fully-developed-claim/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/application/527EZ
+  dest: /pension/apply-for-veteran-pension-form-21p-527ez
+  is-react-app: true
+# September 17, 2018
+- src: /pension/survivors-pension/rates/
+  dest: /pension/survivors-pension-rates/
+  is-react-app: false
+# September 17, 2018
+- src: /pension/pension-management-center/
+  dest: /pension/pension-management-centers/
+  is-react-app: false
+# September 17, 2018
+- src: /download-va-letters/
+  dest: /records/download-va-letters/
+  is-react-app: false
+# September 17, 2018
+- src: /download-va-letters/letters
+  dest: /records/download-va-letters/letters
+  is-react-app: true
+# September 17, 2018
+- src: /discharge-upgrade-instructions
+  dest: /records/discharge-upgrade
+  is-react-app: true
+# September 17, 2018
+- src: /veteran-id-card
+  dest: /records/get-veteran-id-cards
+  is-react-app: true
+# September 17, 2018
+- src: /veteran-id-card/apply
+  dest: /records/get-veteran-id-cards
+  is-react-app: true
