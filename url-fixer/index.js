@@ -1,15 +1,9 @@
 const fs = require('fs')
 const path = require('path')
-const vetsGovProject = getVetsProjectLocation()
 const website = 'https://www.vets.gov'
-const validExtensions = ['md', 'html', 'js', 'jsx']
-const filePaths = {
-  internal: path.normalize('./documents/302 vets.gov internal links-Table 1.csv'),
-  external: path.normalize('./documents/302 links to other .gov-Table 1.csv'),
-  thirdParty: path.normalize('./documents/302 links 3rd party-Table 1.csv'),
-  vetsGovProjectContent: path.join(vetsGovProject, '/content'),
-  vetsGovProjectSrc: path.join(vetsGovProject, '/src')
-}
+const validExtensions = ['md', 'html', 'js', 'jsx', 'json']
+let vetsGovProject = null
+let filePaths = null
 
 function getVetsProjectLocation(){
   const vetsGovProject = process.argv[2]
@@ -108,14 +102,12 @@ function escapeRegExp(str) {
 async function findAndReplace(fileName, urlMap){
   const file = await readFile(fileName)
   const contents = file.toString()
-
-  // Check for a hash
-  const regex = new RegExp('(\\s|"|\\(|https:\\/\\/www\\.vets\\.gov)(' + escapeRegExp(urlMap.replacee) + ')(#|\\s|"|\\))', 'g')
+  const regex = new RegExp('(aliases\\:\\s+\\-)?(\\s|"|\'|\\(|https:\\/\\/www\\.vets\\.gov)(' + escapeRegExp(urlMap.replacee) + ')(#|\\s|"|\'|\\))', 'g')
 
   let counter = 0
-  const newContents = contents.replace(regex, (match, p1, p2, p3) => {
-    counter++
-    return p1 + urlMap.replacement + p3
+  const newContents = contents.replace(regex, (match, p1 = '', p2, p3 = '', p4, p5) => {
+    if (p1.includes('aliases')) return match
+    return p2 + urlMap.replacement + p4
   })
 
   if (newContents != contents){
@@ -162,10 +154,25 @@ function generateCsv(){
 }
 
 async function main(){
+  vetsGovProject = getVetsProjectLocation()
+  filePaths = {
+    internal: path.normalize('./documents/302 vets.gov internal links-Table 1.csv'),
+    external: path.normalize('./documents/302 links to other .gov-Table 1.csv'),
+    thirdParty: path.normalize('./documents/302 links 3rd party-Table 1.csv'),
+    vetsGovProjectContent: path.join(vetsGovProject, '/content'),
+    vetsGovProjectSrc: path.join(vetsGovProject, '/src')
+  }
+
   const links = await generateUrlMap()
   await findAndReplaceAll(filePaths.vetsGovProjectContent, links)
   await findAndReplaceAll(filePaths.vetsGovProjectSrc, links)
   await generateCsv(links)
 }
 
-main()
+module.exports = {
+  readFile,
+  writeFile,
+  findAndReplaceAll
+}
+
+if (process.main === module) main()

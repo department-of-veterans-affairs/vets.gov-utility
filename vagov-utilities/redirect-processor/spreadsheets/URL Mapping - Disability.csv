@@ -1,0 +1,72 @@
+Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes
+www.vets.gov/disability-benefits/,www.benefits.va.gov/compensation/types-disability.asp,/disability/,
+www.vets.gov/disability-benefits/eligibility/,www.benefits.va.gov/compensation/claims-postservice-index.asp,/disability/eligibility/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/,www.benefits.va.gov/compensation/claims-postservice-exposures-index.asp,/disability/eligibility/hazardous-materials-exposure/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/specific-environmental-hazards/,www.benefits.va.gov/compensation/claims-postservice-exposures-environmental_hazards.asp,/disability/eligibility/hazardous-materials-exposure/specific-environmental-hazards/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/,www.benefits.va.gov/compensation/claims-postservice-agent_orange.asp,/disability/eligibility/hazardous-materials-exposure/agent-orange/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/registry-health-exam/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/registry-health-exam/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/diseases/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/related-diseases/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/non-hodgkins/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/non-hodgkins-lymphoma/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/c-123/,www.benefits.va.gov/compensation/agentorange-c123.asp,/disability/eligibility/hazardous-materials-exposure/agent-orange/c-123-aircraft/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/thailand-military-bases/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/thailand-military-bases/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/water-vietnam/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/vietnam-waters,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/service-inside/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/service-in-vietnam-korea/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/service-outside/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/service-outside-vietnam-korea/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/navy-coast-guard/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/navy-coast-guard-ships-vietnam/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/agent-orange/test-storage/,,/disability/eligibility/hazardous-materials-exposure/agent-orange/testing-storage-areas/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/asbestos/,www.benefits.va.gov/compensation/claims-postservice-exposures-asbestos.asp,/disability/eligibility/hazardous-materials-exposure/asbestos/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/mustard-gas/,www.benefits.va.gov/compensation/claims-postservice-exposures-mustard.asp,/disability/eligibility/hazardous-materials-exposure/mustard-gas-lewisite/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/contaminated-drinking-water-at-camp-lejeune/,www.benefits.va.gov/compensation/claims-postservice-exposures-camp-lejeune-water.asp,/disability/eligibility/hazardous-materials-exposure/camp-lejeune-water-contamination/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/radiation-exposure/,www.benefits.va.gov/compensation/claims-postservice-exposures-ionizing_radiation.asp,/disability/eligibility/hazardous-materials-exposure/ionizing-radiation,
+N/A,www.benefits.va.gov/compensation/claims-postservice-exposures-radiogenic_diseases.asp,/disability/eligibility/hazardous-materials-exposure/ionizing-radiation,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/project112-SHAD/,www.benefits.va.gov/compensation/claims-postservice-exposures-project_112_shad.asp,/disability/eligibility/hazardous-materials-exposure/project-112-shad/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/gulf-war-illness/,www.benefits.va.gov/compensation/claims-postservice-gulfwar.asp,/disability/eligibility/hazardous-materials-exposure/gulf-war-illness-southwest-asia/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/gulf-war-illness-from-service-in-afghanistan/,,/disability/eligibility/hazardous-materials-exposure/gulf-war-illness-afghanistan/,
+www.vets.gov/disability-benefits/conditions/pow/,,/disability/eligibility/former-pows/,
+www.vets.gov/disability-benefits/conditions/ptsd/,,/disability/eligibility/ptsd/,
+www.vets.gov/disability-benefits/eligibility/one-year/,www.benefits.va.gov/compensation/claims-postservice-one_year.asp,/disability/eligibility/illnesses-within-one-year-of-discharge/,
+www.vets.gov/disability-benefits/conditions/special-claims/,www.benefits.va.gov/compensation/claims-special-index.asp,/disability/eligibility/special-claims/,
+www.vets.gov/disability-benefits/conditions/special-claims/automobile/,www.benefits.va.gov/compensation/claims-special-auto-allowance.asp,/disability/eligibility/special-claims/automobile-allowance-adaptive-equipment/,
+www.vets.gov/disability-benefits/conditions/exposure-to-hazardous-materials/birth-defects/,www.benefits.va.gov/compensation/claims-special-birth_defects.asp,/disability/eligibility/special-claims/birth-defects/,
+www.vets.gov/disability-benefits/conditions/special-claims/clothing/,www.benefits.va.gov/compensation/claims-special-clothing_allowance.asp,/disability/eligibility/special-claims/clothing-allowance/,
+www.vets.gov/disability-benefits/conditions/special-claims/dentistry/,www.benefits.va.gov/compensation/claims-special-dental.asp,/disability/eligibility/special-claims/dental-care/,
+www.vets.gov/disability-benefits/conditions/special-claims/convalescence/,www.benefits.va.gov/compensation/claims-special-convalescence.asp,/disability/eligibility/special-claims/temporary-increase-after-surgery-or-cast/,
+www.vets.gov/disability-benefits/conditions/special-claims/hospitalization/,www.benefits.va.gov/compensation/claims-special-hospital_treatment.asp,/disability/eligibility/special-claims/temporary-increase-for-time-in-hospital/,
+www.vets.gov/disability-benefits/conditions/special-claims/prestabilization/,www.benefits.va.gov/compensation/claims-special-prestabilization.asp,/disability/eligibility/special-claims/temporary-rating-prestabilization/,
+www.vets.gov/disability-benefits/conditions/special-claims/title-38-USC-1151/,www.benefits.va.gov/compensation/claims-special-1151.asp,/disability/eligibility/special-claims/1151-claims-title-38/,
+www.vets.gov/disability-benefits/conditions/special-claims/individual-unemployability/,www.benefits.va.gov/compensation/claims-special-individual_unemployability.asp,/disability/eligibility/special-claims/unemployability/,
+www.vets.gov/disability-benefits/apply/,www.benefits.va.gov/compensation/apply.asp,/disability/how-to-file-claim/,
+N/A,www.benefits.va.gov/compensation/process.asp,/disability/how-to-file-claim/,
+www.vets.gov/disability-benefits/apply/claim-types/,www.benefits.va.gov/compensation/types-claims.asp,/disability/how-to-file-claim/when-to-file/,
+www.vets.gov/disability-benefits/apply/claim-types/predischarge-claim/,www.benefits.va.gov/predischarge/index.asp,/disability/how-to-file-claim/when-to-file/pre-discharge-claim/,
+www.vets.gov/disability-benefits/apply/claim-types/predischarge-claim/,www.benefits.va.gov/predischarge/claims-pre-discharge-benefits-delivery-at-discharge.asp,/disability/how-to-file-claim/when-to-file/pre-discharge-claim/,
+www.vets.gov/disability-benefits/apply/claim-types/predischarge-claim/overseas/,www.benefits.va.gov/predischarge/claims-pre-discharge-overseas-intake-sites.asp,/disability/how-to-file-claim/when-to-file/pre-discharge-claim/file-while-overseas/,
+www.vets.gov/disability-benefits/apply/evidence/,www.benefits.va.gov/compensation/evidence.asp,/disability/how-to-file-claim/evidence-needed/,
+www.vets.gov/disability-benefits/apply/evidence/decision-ready-claims/,www.benefits.va.gov/compensation/drc.asp,/disability/how-to-file-claim/evidence-needed/decision-ready-claims/,
+www.vets.gov/disability-benefits/apply/evidence/fully-developed-disability-claims/,www.benefits.va.gov/fdc/index.asp,/disability/how-to-file-claim/evidence-needed/fully-developed-claims/,
+N/A,www.benefits.va.gov/fdc/walkthrough.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/fdc/checklist.asp,N/A,NO CHANGE
+www.vets.gov/disability-benefits/apply/evidence/standard-disability-claims/,N/A,/disability/how-to-file-claim/evidence-needed/standard-claims/,
+www.vets.gov/disability-benefits/apply/supplemental-forms/,N/A,/disability/how-to-file-claim/supplemental-forms/,
+N/A,N/A,/disability/file-disability-claim-form-21-526ez/,REMOVED PAGE
+www.vets.gov/disability-benefits/after-you-apply/,N/A,/disability/after-you-file-claim/,
+www.vets.gov/disability-benefits/apply/form-526-disability-claim/,www.vets.gov/disability-benefits/apply/form-526-disability-claim,/disability/file-for-increase-form-21-526ez/,
+www.vets.gov/disability-benefits/claims-appeal/,N/A,/disability/file-an-appeal/,
+www.vets.gov/disability-benefits/claims-appeal/hearings/,N/A,/disability/file-an-appeal/board-of-veterans-appeals/,
+www.vets.gov/disability-benefits/claims-appeal/request-a-priority-review/,N/A,/disability/file-an-appeal/request-priority-review/,
+www.vets.gov/disability-benefits/apply/how-to-add-dependent/,N/A,/disability/add-remove-dependent/,Not live yet
+www.vets.gov/disability-benefits/apply/form-686c-add-dependents/,N/A,/disability/add-remove-dependent/add-dependent-form-21-686c/,Not live yet
+N/A,N/A,/disability/upload-supporting-evidence/,New Page
+www.vets.gov/disability-benefits/apply/supplemental-forms/,N/A,/disability/how-to-file-claim/supplemental-forms/,
+www.vets.gov/disability-benefits/eligibility/ratings/,N/A,/disability/about-disability-ratings/,
+www.vets.gov/disability-benefits/after-you-apply/date/,www.benefits.va.gov/compensation/effective_dates.asp,/disability/about-disability-ratings/effective-date/,
+www.vets.gov/disability-benefits/after-you-apply/what-happens-after-rating/,N/A,/disability/about-disability-ratings/after-you-get-a-rating/,
+N/A,www.benefits.va.gov/compensation/rates-index.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/compensation/resources_comp01.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/compensation/resources_comp02.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/compensation/special_benefit_allowances_2017.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/compensation/sb2017.asp,N/A,NO CHANGE
+N/A,www.benefits.va.gov/compensation/resources-rates-read-compandsmc.asp,N/A,NO CHANGE
+www.vets.gov/disability-benefits/after-you-apply/VA-claim-exam/,www.benefits.va.gov/compensation/claimexam.asp,/disability/va-claim-exam/,
+www.vets.gov/disability-benefits/apply/help/,N/A,/disability/get-help-filing-claim/,
+N/A,www.benefits.va.gov/compensation/dbq_disabilityexams.asp,N/A,NO CHANGE
