@@ -1,12 +1,12 @@
-Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes
-New Page [Records Hub],N/A,/records/,New Page
-www.vets.gov/types-of-veteran-id-cards/,N/A,/records/get-veteran-id-cards/,"Not live, Types page"
-www.vets.gov/types-of-veteran-id-cards/vic,N/A,/records/get-veteran-id-cards/vic/,"Not live, VIC content page"
-VIC application???,N/A,/records/get-veteran-id-cards/vic/apply,"not live, VIC application"
-New Page [Request Military Records],N/A,/records/get-military-service-records/,New Page
-www.vets.gov/download-va-letters/,N/A,/records/download-va-letters/,Content Page
-www.vets.gov/download-va-letters/letters/,N/A,/records/download-va-letters/letters/,Tool
-www.vets.gov/discharge-upgrade-instructions/,N/A,/records/discharge-upgrade/,Content Page
-www.vets.gov/discharge-upgrade-instructions/questions/,,/records/discharge-upgrade/questionaire,Tool
-www.vets.gov/veteran-id-card/,,/records/get-veteran-id-cards/,Not live
-www.vets.gov/veteran-id-card/apply/,,/records/get-veteran-id-cards/,Not live
+Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes,
+New Page [Records Hub],N/A,/records/,New Page,
+www.vets.gov/types-of-veteran-id-cards/,N/A,/records/get-veteran-id-cards/,"Not live, Types page",
+www.vets.gov/types-of-veteran-id-cards/vic,N/A,/records/get-veteran-id-cards/vic/,"Not live, VIC content page",
+VIC application???,N/A,/records/get-veteran-id-cards/vic/apply,"not live, VIC application",
+New Page [Request Military Records],N/A,/records/get-military-service-records/,New Page,
+www.vets.gov/download-va-letters/,N/A,/records/download-va-letters/,Content Page,
+www.vets.gov/download-va-letters/letters/,N/A,/records/download-va-letters/letters/,Tool,
+www.vets.gov/discharge-upgrade-instructions/,N/A,/records/discharge-upgrade/,NO CHANGE,Revert back to Vets URL
+www.vets.gov/discharge-upgrade-instructions/questions/,,/records/discharge-upgrade/questionaire,NO CHANGE,Revert back to Vets URL
+www.vets.gov/veteran-id-card/,,/records/get-veteran-id-cards/,Not live,
+www.vets.gov/veteran-id-card/apply/,,/records/get-veteran-id-cards/,Not live,
