@@ -1,44 +1,45 @@
-Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes
-www.vets.gov/burials-and-memorials/,www.cem.va.gov/cem/burial_benefits/index.asp,/burials-memorials/,
-www.vets.gov/burials-and-memorials/eligibility/,www.cem.va.gov/cem/burial_benefits/eligible.asp,/burials-memorials/eligibility/,
-N/A,www.cem.va.gov/cem/Women_and_Minority_Veterans.asp,/burials-memorials/eligibility/,
-N/A,www.cem.va.gov/cem/burial_benefits/private_cemetery.asp,N/A,NO CHANGE
-www.vets.gov/burials-and-memorials/pre-need/,www.cem.va.gov/cem/pre-need/index.asp,/burials-memorials/pre-need-eligibility/,
-www.vets.gov/burials-and-memorials/pre-need/form-10007-apply-for-eligibility/,N/A,/burials-memorials/pre-need-eligibility/apply-for-pre-need-form-40-10007,
-N/A,www.cem.va.gov/CEM/pre-need/FAQ/,N/A,NO CHANGE
-www.vets.gov/burials-and-memorials/pre-need/after-you-apply/,N/A,/burials-memorials/pre-need-eligibility/after-you-apply/,
-www.vets.gov/burials-and-memorials/survivor-and-dependent-benefits/burial-costs/,N/A,/burials-memorials/veterans-burial-allowance/,
-www.vets.gov/burials-and-memorials/application/530/,N/A,/burials-memorials/veterans-burial-allowance/apply-for-burial-allowance-form-21p-530/,
-www.vets.gov/burials-and-memorials/honor/,N/A,/burials-memorials/memorial-items/,
-www.vets.gov/burials-and-memorials/honor/headstones-markers-medallions/,www.cem.va.gov/cem/hmm/index.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,
-N/A,www.cem.va.gov/cem/hmm/eligibility.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,
-N/A,www.cem.va.gov/cem/hmm/order_instructions.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,
-N/A,www.cem.va.gov/cem/hmm/apply_by_fax.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,
-N/A,www.cem.va.gov/cem/hmm/order_by_mail.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,
-N/A,www.cem.va.gov/cem/hmm/types.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/hmm/replacements.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/hmm/pre_WWI_era.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/hmm/abbreviations.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/hmm/emblems.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/hmm/discharge_documents.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/burial_benefits/burial_flags.asp,/burials-memorials/memorial-items/burial-flags/,
-www.vets.gov/burials-and-memorials/honor/flags-and-memorial-certificates/,www.cem.va.gov/cem/pmc.asp,/burials-memorials/memorial-items/presidential-memorial-certificates/,
-www.vets.gov/burials-and-memorials/survivor-and-dependent-benefits/compensation/,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity.asp,/burials-memorials/dependency-indemnity-compensation/,
-N/A,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity_parents.asp,/burials-memorials/dependency-indemnity-compensation/,
-www.vets.gov/burials-and-memorials/bereavement-counseling/,N/A,/burials-memorials/bereavement-counseling/,
-www.vets.gov/burials-and-memorials/burial-planning/,N/A,/burials-memorials/plan-a-burial/,
-N/A,www.cem.va.gov/cem/burial_benefits/burial_at_sea.asp,/burials-memorials/plan-a-burial/,
-N/A,www.cem.va.gov/CEM/military_funeral_honors.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/burial_benefits/need.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cems/listcem.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/recmed_records.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/dailyburialschedule/ ,N/A,NO CHANGE
-N/A,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity.asp,N/A,NO CHANGE
-N/A,www.benefits.va.gov/COMPENSATION/resources-rates-read-dic.asp,N/A,NO CHANGE
-N/A,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity_parents.asp,N/A,NO CHANGE
-N/A,www.benefits.va.gov/COMPENSATION/resources-rates-read-parentsdic.asp,N/A,NO CHANGE
-N/A,www.cem.va.gov/recmed_records.asp,N/A,NO CHANGE
-N/A,www.archives.gov/veterans,N/A,NO CHANGE
-N/A,m.va.gov/gravelocator/index.cfm,N/A,NO CHANGE
-N/A,www.cem.va.gov/cem/faq.asp,N/A,NO CHANGE
-www.vets.gov/burials-and-memorials/what-to-expect-at-a-funeral/ ,www.cem.va.gov/cem/burial_benefits/committal_service.asp,/burials-memorials/what-to-expect-at-military-funeral/,
+Existing VETS.GOV url,Existing VA.GOV url,NEW URL,Notes,
+www.vets.gov/burials-and-memorials/,www.cem.va.gov/cem/burial_benefits/index.asp,/burials-memorials/,,
+www.vets.gov/burials-and-memorials/eligibility/,www.cem.va.gov/cem/burial_benefits/eligible.asp,/burials-memorials/eligibility/,,
+N/A,www.cem.va.gov/cem/Women_and_Minority_Veterans.asp,/burials-memorials/eligibility/,,
+N/A,www.cem.va.gov/cem/burial_benefits/private_cemetery.asp,N/A,NO CHANGE,
+www.vets.gov/burials-and-memorials/pre-need/,www.cem.va.gov/cem/pre-need/index.asp,/burials-memorials/pre-need-eligibility/,,
+www.vets.gov/burials-and-memorials/pre-need/form-10007-apply-for-eligibility/,N/A,/burials-memorials/pre-need-eligibility/apply-for-pre-need-form-40-10007,NO CHANGE,Revert back to Vets URL
+N/A,www.cem.va.gov/CEM/pre-need/FAQ/,N/A,NO CHANGE,
+www.vets.gov/burials-and-memorials/pre-need/after-you-apply/,N/A,/burials-memorials/pre-need-eligibility/after-you-apply/,,
+www.vets.gov/burials-and-memorials/survivor-and-dependent-benefits/burial-costs/,N/A,/burials-memorials/veterans-burial-allowance/,,
+www.vets.gov/burials-and-memorials/application/530/,N/A,/burials-memorials/veterans-burial-allowance/apply-for-burial-allowance-form-21p-530/,NO CHANGE,Revert back to Vets URL
+www.vets.gov/burials-and-memorials/honor/,N/A,/burials-memorials/memorial-items/,,
+www.vets.gov/burials-and-memorials/honor/headstones-markers-medallions/,www.cem.va.gov/cem/hmm/index.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,,
+N/A,www.cem.va.gov/cem/hmm/eligibility.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,,
+N/A,www.cem.va.gov/cem/hmm/order_instructions.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,,
+N/A,www.cem.va.gov/cem/hmm/apply_by_fax.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,,
+N/A,www.cem.va.gov/cem/hmm/order_by_mail.asp,/burials-memorials/memorial-items/headstones-markers-medallions/,,
+N/A,www.cem.va.gov/cem/hmm/types.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/hmm/replacements.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/hmm/pre_WWI_era.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/hmm/abbreviations.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/hmm/emblems.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/hmm/discharge_documents.asp,N/A,NO CHANGE,
+New Page [Flags],www.cem.va.gov/cem/burial_benefits/burial_flags.asp,/burials-memorials/memorial-items/burial-flags/,New Page,
+www.vets.gov/burials-and-memorials/honor/flags-and-memorial-certificates/,www.cem.va.gov/cem/pmc.asp,/burials-memorials/memorial-items/presidential-memorial-certificates/,,
+www.vets.gov/burials-and-memorials/survivor-and-dependent-benefits/compensation/,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity.asp,/burials-memorials/dependency-indemnity-compensation/,,
+N/A,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity_parents.asp,/burials-memorials/dependency-indemnity-compensation/,,
+www.vets.gov/burials-and-memorials/bereavement-counseling/,N/A,/burials-memorials/bereavement-counseling/,,
+www.vets.gov/burials-and-memorials/burial-planning/,N/A,/burials-memorials/plan-a-burial/,,
+N/A,www.cem.va.gov/cem/burial_benefits/burial_at_sea.asp,/burials-memorials/plan-a-burial/,,
+N/A,www.cem.va.gov/CEM/military_funeral_honors.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/burial_benefits/need.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cems/listcem.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/recmed_records.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/dailyburialschedule/ ,N/A,NO CHANGE,
+N/A,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity.asp,N/A,NO CHANGE,
+N/A,www.benefits.va.gov/COMPENSATION/resources-rates-read-dic.asp,N/A,NO CHANGE,
+N/A,www.benefits.va.gov/COMPENSATION/types-dependency_and_indemnity_parents.asp,N/A,NO CHANGE,
+N/A,www.benefits.va.gov/COMPENSATION/resources-rates-read-parentsdic.asp,N/A,NO CHANGE,
+N/A,www.cem.va.gov/recmed_records.asp,N/A,NO CHANGE,
+N/A,www.archives.gov/veterans,N/A,NO CHANGE,
+N/A,m.va.gov/gravelocator/index.cfm,N/A,NO CHANGE,
+N/A,www.cem.va.gov/cem/faq.asp,N/A,NO CHANGE,
+www.vets.gov/burials-and-memorials/what-to-expect-at-a-funeral/ ,www.cem.va.gov/cem/burial_benefits/committal_service.asp,/burials-memorials/what-to-expect-at-military-funeral/,,
+www.vets.gov/burials-and-memorials/find-a-cemetery/,N/A,www.cem.va.gov/cems/listcem.asp,Redirect,
