@@ -57,8 +57,11 @@ function main() {
 
   links.push(...indexLinks);
 
-  fs.writeFileSync('./logs/vagovRedirects.json', JSON.stringify(links, null, 2));
-  fs.writeFileSync('./logs/vagovRedirects.yml', yaml.safeDump(links));
+  const vagovRedirects = links.filter(link => link.domain === 'www.va.gov');
+  const otherDomainRedirects = links.filter(link => link.domain !== 'www.va.gov');
+
+  fs.writeFileSync('./logs/vagovRedirects.json', JSON.stringify(vagovRedirects, null, 2));
+  fs.writeFileSync('./logs/otherDomainRedirects.json', JSON.stringify(otherDomainRedirects, null, 2));
 }
 
 main();
